@@ -1,10 +1,8 @@
+-- much of this is directly from  github.com/ThePrimeagen/init.lua
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
---update spamming save
+-- for spamming save (all files)j
 vim.keymap.set("n", "<leader>s", function() vim.cmd("wall") end)
---vim.keymap.set("n", "<leader>w", vim.cmd.
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 

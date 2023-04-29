@@ -23,3 +23,5 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+vim.keymap.set("n", "<leader>M", function() vim.cmd("Mason") end);
