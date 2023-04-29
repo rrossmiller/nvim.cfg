@@ -1,4 +1,5 @@
-vim.opt.colorcolumn="80"
+TABS
+
 
 toggle relative numbers
 terminal
