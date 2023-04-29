@@ -7,6 +7,9 @@ end)
 
 --lsp.ensure_installed({})
 
+-- Fix Undefined global 'vim'
+lsp.nvim_workspace()
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 

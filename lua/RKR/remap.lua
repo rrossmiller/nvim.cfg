@@ -1,3 +1,5 @@
+-- tmp install stuff
+vim.keymap.set("n", "<C-i>", function() vim.cmd("Lazy install") end)
 -- much of this is directly from  github.com/ThePrimeagen/init.lua
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
