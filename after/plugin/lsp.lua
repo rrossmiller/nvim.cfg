@@ -5,7 +5,15 @@ lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 end)
 
---lsp.ensure_installed({})
+lsp.ensure_installed({
+    'lua_ls',
+    'tsserver',
+    'tailwindcss',
+    'rust_analyzer',
+    'pyright',
+    'gopls',
+    'jdtls',
+})
 
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
@@ -28,3 +36,12 @@ end)
 lsp.setup()
 
 vim.keymap.set("n", "<leader>M", function() vim.cmd("Mason") end);
+
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        virtual_text = true,
+        update_in_insert = true
+    }
+)

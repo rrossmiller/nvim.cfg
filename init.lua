@@ -16,6 +16,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 require('neodev').setup()
 
-
--- idk why this doesn't set when it's in set.lua
-vim.o.colorcolumn = ""
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }

@@ -32,4 +32,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.o.colorcolumn = ""
+
+-- easy chmod +x
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
