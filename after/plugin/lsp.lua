@@ -12,6 +12,7 @@ lsp.ensure_installed({
     'rust_analyzer',
     'pyright',
     'gopls',
+    'gofumpt',
     'jdtls',
 })
 
