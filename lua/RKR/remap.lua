@@ -47,3 +47,7 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+
+-- remap ctrl w to option w
+vim.keymap.set("n", "∑","<C-w>")
