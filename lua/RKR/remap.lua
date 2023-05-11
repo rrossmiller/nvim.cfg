@@ -51,3 +51,9 @@ end)
 
 -- remap ctrl w to option w
 vim.keymap.set("n", "∑","<C-w>")
+
+-- move around split windows
+vim.keymap.set("n", "˙","<C-w>h")
+vim.keymap.set("n", "∆","<C-w>j")
+vim.keymap.set("n", "˚","<C-w>k")
+vim.keymap.set("n", "¬","<C-w>l")

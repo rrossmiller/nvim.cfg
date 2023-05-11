@@ -16,5 +16,3 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 require('neodev').setup()
 
-vim.opt.spell = true
-vim.opt.spelllang = { 'en_us' }
