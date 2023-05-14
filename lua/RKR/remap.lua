@@ -21,6 +21,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+vim.keymap.set({ "n", "i" }, "<D-v>", [["+P]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
@@ -50,10 +51,10 @@ end)
 
 
 -- remap ctrl w to option w
-vim.keymap.set("n", "∑","<C-w>")
+vim.keymap.set("n", "∑", "<C-w>")
 
 -- move around split windows
-vim.keymap.set("n", "˙","<C-w>h")
-vim.keymap.set("n", "∆","<C-w>j")
-vim.keymap.set("n", "˚","<C-w>k")
-vim.keymap.set("n", "¬","<C-w>l")
+vim.keymap.set("n", "˙", "<C-w>h")
+vim.keymap.set("n", "∆", "<C-w>j")
+vim.keymap.set("n", "˚", "<C-w>k")
+vim.keymap.set("n", "¬", "<C-w>l")

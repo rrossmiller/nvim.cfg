@@ -1,4 +1,6 @@
---vim.opt.guicursor = ""
+-- line height
+vim.opt.lsp=0
+vim.opt.cmdheight=0
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
