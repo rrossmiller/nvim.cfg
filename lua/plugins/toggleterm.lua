@@ -1,11 +1,8 @@
-return {}
-    --    'akinsho/toggleterm.nvim', version = "*", config = true
---    {
---        'akinsho/toggleterm.nvim',
---        version = "*",
---        opts = {
---            open_mapping = [[<leader>j]],
---
---        }
---    }
---}
+return {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    opts = {
+        open_mapping = [[<C-j>]],
+
+    }
+}

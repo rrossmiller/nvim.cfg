@@ -7,7 +7,15 @@ vim.keymap.set("n", "<leader>QQ", function()
     vim.cmd("q")
 end)
 
-
+-- setup: https://github.com/nvim-tree/nvim-web-devicons#setup
+require 'nvim-web-devicons'.set_icon {
+    gsql = {
+        icon = "",   -- 褐"",
+        color = "#fc6203",
+        cterm_color = "65",
+        name = "gsql"
+    }
+}
 
 local options = {
     filters = {

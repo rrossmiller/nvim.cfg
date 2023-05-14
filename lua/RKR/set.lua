@@ -1,6 +1,6 @@
 -- line height
-vim.opt.lsp=0
-vim.opt.cmdheight=0
+vim.opt.lsp = 7
+vim.opt.cmdheight = 0
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -38,3 +38,10 @@ vim.o.colorcolumn = ""
 
 -- easy chmod +x
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- gsql filetype
+vim.filetype.add({
+    extension = {
+        gsql = 'gsql'
+    }
+})
