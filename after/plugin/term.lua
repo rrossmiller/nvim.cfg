@@ -22,4 +22,11 @@ function _lazygit_toggle()
     lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+
+----------
+--function _vert_toggle()
+--    vim.cmd("ToggleTerm size=40 direction=vertical")
+--end
+--
+--vim.keymap.set("n", "<C-k>", _vert_toggle, { noremap = true, silent = true })
