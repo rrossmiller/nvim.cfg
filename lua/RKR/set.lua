@@ -1,5 +1,5 @@
 -- line height
-vim.opt.lsp = 7
+--vim.opt.lsp = 4
 vim.opt.cmdheight = 0
 
 vim.opt.nu = true

@@ -10,7 +10,8 @@ end)
 -- setup: https://github.com/nvim-tree/nvim-web-devicons#setup
 require 'nvim-web-devicons'.set_icon {
     gsql = {
-        icon = "",   -- 褐"",
+        --icon = "",   -- 褐"",
+        icon = "🐯",
         color = "#fc6203",
         cterm_color = "65",
         name = "gsql"

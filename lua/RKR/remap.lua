@@ -27,7 +27,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
-
+--vim.keymap.set("i","<D-z>","") -- TODO: map cmd-z in instert mode to undo
 vim.keymap.set("n", "Q", "<nop>")
 --
 -- Deleteme?

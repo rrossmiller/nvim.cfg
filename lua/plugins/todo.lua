@@ -9,7 +9,7 @@ return {
             keywords = {
                 BOOK = {
                     icon = "🚩",
-                    color = "#ffff00warning",
+                    color = "#fc5e03",
                     alt = { "!book", "!bookmark", "BOOKMARK" },
                 },
                 FIX = {
@@ -18,6 +18,7 @@ return {
                     alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
                     -- signs = false, -- configure signs for some keywords individually
                 },
+                DELETEME = { icon = "X", color = "error" },
                 TODO = { icon = " ", color = "info" },
                 HACK = { icon = " ", color = "warning" },
                 WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
