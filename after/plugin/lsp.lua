@@ -11,8 +11,10 @@ lsp.ensure_installed({
     'tailwindcss',
     'rust_analyzer',
     'pyright',
+    'black',
     'gopls',
     'jdtls',
+    'bashls'
 })
 
 -- Fix Undefined global 'vim'

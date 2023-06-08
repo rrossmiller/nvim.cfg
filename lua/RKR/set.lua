@@ -15,7 +15,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 -- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
+--vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.opt.swapfile = false

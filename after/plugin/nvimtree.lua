@@ -39,7 +39,7 @@ local options = {
         preserve_window_proportions = true,
     },
     git = {
-        enable = false,
+        enable = true,
         ignore = false,
     },
     filesystem_watchers = {
