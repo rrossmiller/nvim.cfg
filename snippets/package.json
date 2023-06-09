@@ -13,6 +13,12 @@
 					"go"
 				],
 				"path": "./go.jsonc"
+			},
+			{
+				"language": [
+					"python"
+				],
+				"path": "./python.jsonc"
 			}
 		]
 	}

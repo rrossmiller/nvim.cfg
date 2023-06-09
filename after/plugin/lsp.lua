@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 lsp.preset("recommended")
 
 lsp.on_attach(function(client, bufnr)
@@ -46,3 +47,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         update_in_insert = true
     }
 )
+

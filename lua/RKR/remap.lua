@@ -1,10 +1,12 @@
--- suspend
-vim.keymap.set("n", "<leader>q", function() vim.cmd("sus") end)
+-- suspend vim
+vim.keymap.set("n", "œ", function() vim.cmd("sus") end)
+
 -- tmp install stuff
 vim.keymap.set("n", "<C-i>", function() vim.cmd("Lazy install") end)
 -- much of this is directly from  github.com/ThePrimeagen/init.lua
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
 -- for spamming save (all files)j
 vim.keymap.set("n", "<leader>s", function() vim.cmd("wall") end)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -65,3 +67,15 @@ vim.keymap.set("n", "¬", "<C-w>l")
 
 -- toggle auto save
 vim.api.nvim_set_keymap("n", "<leader>s", ":ASToggle<CR>", {})
+
+
+-- python black formatter
+vim.keymap.set("n", "<leader>b", function()
+    local ft = vim.bo.filetype
+    if ft == "python" then
+        local pth = vim.fn.expand("%")
+        local cmd = string.format("!black %s", pth)
+        vim.cmd(cmd)
+    end
+end
+)
