@@ -1,25 +1,31 @@
 {
-	"name": "example-snippets",
-	"contributes": {
-		"snippets": [
-			{
-				"language": [
-					"all"
-				],
-				"path": "./snippets/all.json"
-			},
-			{
-				"language": [
-					"go"
-				],
-				"path": "./go.jsonc"
-			},
-			{
-				"language": [
-					"python"
-				],
-				"path": "./python.jsonc"
-			}
-		]
-	}
+    "name": "example-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "all"
+                ],
+                "path": "./snippets/all.json"
+            },
+            {
+                "language": [
+                    "rust"
+                ],
+                "path": "./rust.jsonc"
+            },
+            {
+                "language": [
+                    "go"
+                ],
+                "path": "./go.jsonc"
+            },
+            {
+                "language": [
+                    "python"
+                ],
+                "path": "./python.jsonc"
+            }
+        ]
+    }
 }
