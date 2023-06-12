@@ -78,7 +78,7 @@ vim.keymap.set("n", "<leader>QQ", function()
 end)
 
 -- python black formatter
-vim.keymap.set("n", "<leader>f", function()
+vim.keymap.set("n", "<leader>b", function()
     local ft = vim.bo.filetype
     if ft == "python" then
         local pth = vim.fn.expand("%")
