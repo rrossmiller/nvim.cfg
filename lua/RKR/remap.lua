@@ -69,12 +69,20 @@ vim.keymap.set("n", "¬", "<C-w>l")
 vim.api.nvim_set_keymap("n", "<leader>s", ":ASToggle<CR>", {})
 
 
+-- NvimTree
+vim.keymap.set("n", "<leader>pT", function() vim.cmd("NvimTreeToggle") end)
+vim.keymap.set("n", "<leader>pt", function() vim.cmd("NvimTreeFocus") end)
+vim.keymap.set("n", "<leader>QQ", function()
+    vim.cmd("NvimTreeClose")
+    vim.cmd("wqa")
+end)
+
 -- python black formatter
 vim.keymap.set("n", "<leader>b", function()
     local ft = vim.bo.filetype
     if ft == "python" then
         local pth = vim.fn.expand("%")
-        local cmd = string.format("!black %s", pth)
+        local cmd = string.format("silent !black --quiet %s", pth)
         vim.cmd(cmd)
     end
 end

@@ -1,11 +1,3 @@
--- this needs to be here to allow for the NvimTreeClose
-vim.keymap.set("n", "<leader>pT", function() vim.cmd("NvimTreeToggle") end)
-vim.keymap.set("n", "<leader>pt", function() vim.cmd("NvimTreeFocus") end)
-vim.keymap.set("n", "<leader>QQ", function()
-    vim.cmd("NvimTreeClose")
-    vim.cmd("wall")
-    vim.cmd("q")
-end)
 
 -- setup: https://github.com/nvim-tree/nvim-web-devicons#setup
 require 'nvim-web-devicons'.set_icon {
