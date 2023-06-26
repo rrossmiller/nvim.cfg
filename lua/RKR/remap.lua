@@ -1,5 +1,8 @@
+-- Stop lazyvim from taking over tab
+vim.keymap.set("n", "<Tab>", function() vim.cmd("") end)
 -- suspend vim
 vim.keymap.set("n", "œ", function() vim.cmd("sus") end)
+
 
 -- tmp install stuff
 vim.keymap.set("n", "<C-i>", function() vim.cmd("Lazy install") end)
@@ -57,6 +60,7 @@ end)
 
 -- remap ctrl w to option w
 vim.keymap.set("n", "∑", "<C-w>")
+vim.keymap.set("n", "∑h", "<C-w>s")
 
 -- move around split windows
 vim.keymap.set("n", "˙", "<C-w>h")
@@ -68,13 +72,20 @@ vim.keymap.set("n", "¬", "<C-w>l")
 -- toggle auto save
 vim.api.nvim_set_keymap("n", "<leader>s", ":ASToggle<CR>", {})
 
+-- restart lsp
+vim.keymap.set("n", "<leader>lr", function()
+    vim.cmd("LspRestart")
+    print("done reloading")
+end)
+
 
 -- NvimTree
 vim.keymap.set("n", "<leader>pT", function() vim.cmd("NvimTreeToggle") end)
 vim.keymap.set("n", "<leader>pt", function() vim.cmd("NvimTreeFocus") end)
 vim.keymap.set("n", "<leader>QQ", function()
     vim.cmd("NvimTreeClose")
-    vim.cmd("wqa")
+    vim.cmd("wa")
+    vim.cmd("qa")
 end)
 
 -- python black formatter

@@ -11,8 +11,6 @@ lsp.ensure_installed({
     'tsserver',
     'tailwindcss',
     'rust_analyzer',
-    'pyright',
-    'black',
     'gopls',
     'jdtls',
     'bashls'

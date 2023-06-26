@@ -45,3 +45,6 @@ vim.filetype.add({
         gsql = 'gsql'
     }
 })
+
+-- don't add comment on next line after comment
+vim.opt.formatoptions:remove { 'c', 'r', 'o' }

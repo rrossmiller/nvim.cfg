@@ -1,6 +1,6 @@
 return {
     'abecodes/tabout.nvim',
-    config = function()
+    config       = function()
         require('tabout').setup {
             tabkey = '<Tab>',             -- key to trigger tabout, set to an empty string to disable
             backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
@@ -22,6 +22,5 @@ return {
             exclude = {} -- tabout will ignore these filetypes
         }
     end,
-    wants = { 'nvim-treesitter' }, -- or require if not used so far
-    after = { 'nvim-cmp' }         -- if a completion plugin is using tabs load it before
+    dependencies = { 'nvim-cmp', 'nvim-treesitter' }, -- or require if not used so far
 }
