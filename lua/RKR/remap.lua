@@ -1,13 +1,13 @@
+-- much of this is directly from  github.com/ThePrimeagen/init.lua
+vim.g.mapleader = " "
+
 -- Stop lazyvim from taking over tab
 vim.keymap.set("n", "<Tab>", function() vim.cmd("") end)
 -- suspend vim
 vim.keymap.set("n", "œ", function() vim.cmd("sus") end)
-
-
 -- tmp install stuff
 vim.keymap.set("n", "<C-i>", function() vim.cmd("Lazy install") end)
--- much of this is directly from  github.com/ThePrimeagen/init.lua
-vim.g.mapleader = " "
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- for spamming save (all files)j
@@ -54,6 +54,7 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
+    print('~')
     vim.cmd("so")
 end)
 
