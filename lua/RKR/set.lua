@@ -47,4 +47,5 @@ vim.filetype.add({
 })
 
 -- don't add comment on next line after comment
-vim.opt.formatoptions:remove { 'c', 'r', 'o' }
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
