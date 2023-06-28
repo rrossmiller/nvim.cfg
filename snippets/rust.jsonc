@@ -7,14 +7,14 @@
     "Println": {
         "prefix": "pl",
         "body": [
-            "println!(\"{}\",$1)"
+            "println!(\"{}\",$1);"
         ],
         "description": "Println"
     },
     "Println blank": {
         "prefix": "plb",
         "body": [
-            "println!()"
+            "println!(\"$1\");"
         ],
         "description": "Println"
     }
