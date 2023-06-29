@@ -2,10 +2,6 @@ local lsp = require('lsp-zero')
 local lspconfig = require('lspconfig')
 lsp.preset("recommended")
 
-lsp.on_attach(function(client, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
-end)
-
 lsp.ensure_installed({
     'lua_ls',
     'tsserver',
@@ -20,6 +16,7 @@ lsp.ensure_installed({
 lsp.nvim_workspace()
 
 lsp.on_attach(function(client, bufnr)
+    lsp.default_keymaps({ buffer = bufnr })
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -33,6 +30,23 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+lspconfig.pylsp.setup {
+    settings = {
+        -- → pylsp.plugins.autopep8.enabled                            default: true
+        pylsp = {
+            plugins = {
+                autopep8 = {
+                    enabled = false
+                },
+                pycodestyle = {
+                    enabled = false,
+                    -- ignore = { 'ES501', 'W391' },
+                    -- maxLineLength = 100
+                }
+            }
+        }
+    }
+}
 lsp.setup()
 
 vim.keymap.set("n", "<leader>M", function() vim.cmd("Mason") end);
@@ -45,4 +59,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         update_in_insert = true
     }
 )
-
