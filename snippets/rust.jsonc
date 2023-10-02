@@ -1,0 +1,39 @@
+{
+    // Place your snippets for go here. Each snippet is defined under a snippet name and has a prefix, body and
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+    // same ids are connected.
+    // Example:
+    "mains": {
+        "prefix": "mains",
+        "body": [
+            "fn main(){\n\tprintln!(\"hello world\");\n}"
+        ]
+    },
+    "Println": {
+        "prefix": "pl",
+        "body": [
+            "println!(\"{}\",$1);"
+        ],
+        "description": "Println"
+    },
+    "Println blank": {
+        "prefix": "plb",
+        "body": [
+            "println!(\"$1\");"
+        ],
+        "description": "Println"
+    },
+    "Tests": {
+        "prefix": "tests",
+        "body": [
+            "#[cfg(test)]",
+            "mod tests {",
+            "\t#[test]",
+            "\tfn t1() {",
+            "\t\tassert_eq!(true,false);",
+            "\t}\n}"
+        ],
+        "description": "testing boilerplate"
+    }
+}
