@@ -107,7 +107,7 @@ return {
                     ["l"] = "focus_preview",
                     -- ["S"] = "open_split",
                     ["s"] = "split_with_window_picker",
-                    -- ["s"] = "open_vsplit",
+                    -- ["S"] = "open_vsplit",
                     -- ["S"] = "split_with_window_picker",
                     -- ["s"] = "vsplit_with_window_picker",
                     ["t"] = "open_tabnew",

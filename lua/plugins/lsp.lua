@@ -74,9 +74,8 @@ return {
     local servers = {
       -- clangd = {},
       gopls = {},
-      pyright = {
-
-      },
+      pyright = { },
+      black={},
       rust_analyzer = {},
       tsserver = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },

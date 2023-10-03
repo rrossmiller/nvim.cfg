@@ -1,4 +1,4 @@
-return {
+return { {
   -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
@@ -8,12 +8,28 @@ return {
   config = function()
     -- [[ Configure Treesitter ]]
     -- See `:help nvim-treesitter`
+    --
+    --GSQL
+    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    parser_config.gsql = {
+      install_info = {
+        url = "https://github.com/rrossmiller/tree-sitter-gsql", -- local path or git repo
+        files = { "src/parser.c" },                              -- note that some parsers also require src/scanner.c or src/scanner.cc
+        -- optional entries:
+        branch = "main",                                         -- default branch in case of git repo if different from master
+        generate_requires_npm = false,                           -- if stand-alone parser without npm dependencies
+        requires_generate_from_grammar = false,                  -- if folder contains pre-generated src/parser.c
+      },
+      filetype = "gsql",                                         -- if filetype does not match the parser name
+    }
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
-      ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+      ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc',
+        'vim', 'gsql', },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-      auto_install = false,
+      auto_install = true,
+      --
 
       highlight = { enable = true },
       indent = { enable = true },
@@ -73,5 +89,11 @@ return {
     }
   end
 
+},
+  {
+    'nvim-treesitter/playground',
+    keys = {
+      { "<leader>tp", "<cmd>TSPlaygroundToggle<cr>", desc = "TS toggle playground" },
+    },
+  }
 }
-
