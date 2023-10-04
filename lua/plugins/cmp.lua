@@ -60,6 +60,8 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
         },
+        completion = { completeopt = "noselect" },
+        preselect = cmp.PreselectMode.None
       }
     end
   },

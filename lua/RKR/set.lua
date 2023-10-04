@@ -3,7 +3,7 @@ vim.o.mouse = 'a'
 
 -- line height
 --vim.opt.lsp = 4
-vim.opt.cmdheight = 0
+vim.o.cmdheight=0
 
 -- Make line numbers default
 -- vim.wo.number = true
