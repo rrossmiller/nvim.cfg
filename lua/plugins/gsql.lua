@@ -1,0 +1,1 @@
+return { 'jmeekhof/gsql-vim' }

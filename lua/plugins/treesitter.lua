@@ -22,6 +22,13 @@ return { {
       },
       filetype = "gsql",                                         -- if filetype does not match the parser name
     }
+    vim.filetype.add({
+      extension = {
+        gsql = "gsql"
+
+      }
+    })
+
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc',
