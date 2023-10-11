@@ -123,15 +123,3 @@ vim.keymap.set("n", "<leader>QQ", function()
     vim.cmd("wa")
     vim.cmd("qa")
 end)
-
--- python black formatter
--- TODO: integrate into lsp
-vim.keymap.set("n", "<leader>b", function()
-    local ft = vim.bo.filetype
-    if ft == "python" then
-        local pth = vim.fn.expand("%")
-        local cmd = string.format("silent !black --quiet %s", pth)
-        vim.cmd(cmd)
-    end
-end
-)
