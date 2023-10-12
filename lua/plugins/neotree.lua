@@ -10,6 +10,8 @@ return {
     config = function()
         local neotree = require("neo-tree")
 
+        vim.keymap.set("n", "<leader>R", "<cmd>Neotree reveal<CR>")
+
         neotree.setup({
             close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
             popup_border_style = "rounded",
@@ -73,7 +75,7 @@ return {
                         -- Status type
                         -- untracked = "",
                         -- ignored   = "",
-                        untracked  = "",
+                        untracked = "",
                         ignored   = "",
                         -- unstaged  = "󰄱",
                         unstaged  = "Δ",
@@ -178,7 +180,7 @@ return {
                     --               -- the current file is changed while the tree is open.
                     leave_dirs_open = false,            -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                 },
-                group_empty_dirs = false,               -- when true, empty folders will be grouped together
+                group_empty_dirs = true,               -- when true, empty folders will be grouped together
                 hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                 -- in whatever position is specified in window.position
                 -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -244,4 +246,3 @@ return {
         })
     end
 }
-
