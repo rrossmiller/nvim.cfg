@@ -1,6 +1,8 @@
 -- https://sookocheff.com/post/vim/neovim-java-ide/
 -- mkdir ~/.local/share/jdtls
+-- brew install jdtls
 --
+-- curl/wget
 -- NEEDED FILES FOR CONFIG
 -- google java style: https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml
 -- lombok.jar : https://projectlombok.org/download
