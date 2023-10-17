@@ -13,7 +13,7 @@ return {
         vim.keymap.set("n", "<leader>R", "<cmd>Neotree reveal<CR>")
 
         neotree.setup({
-            close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+            close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
             popup_border_style = "rounded",
             enable_git_status = true,
             enable_diagnostics = true,
