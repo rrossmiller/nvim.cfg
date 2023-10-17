@@ -121,11 +121,14 @@ return {
         'j-hui/fidget.nvim',
         enabled = false,
         tag = 'legacy',
+        -- tag = 'legacy',
         opts = {
           timer = {
             fidget_decay = 1000
           },
-
+          sources = {
+            jdtls = { ignore = true },
+          }
         }
       },
 
