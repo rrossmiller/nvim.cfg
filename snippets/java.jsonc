@@ -7,13 +7,13 @@
     "mains": {
         "prefix": "mains",
         "body": ["public static void main(String[] args){\n\t\n}"],
-        "description": "Log output to console"
+        "description": "mains boilerplate"
     },
-    // "Print to console": {
-    //     "prefix": "fp",
-    //     "body": ["fmt.Println($1)"],
-    //     "description": "Println"
-    // },
+    "Println": {
+        "prefix": "print",
+        "body": ["System.out.println($1);"],
+        "description": "Println"
+    },
     // "Printf to console": {
     //     "prefix": "fpf",
     //     "body": ["fmt.Printf(\"$1\\n\",$2)"],
