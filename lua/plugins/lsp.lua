@@ -48,11 +48,13 @@ local function cfg()
     local ft = vim.bo.filetype
     if ft == "python" then
       local pth = vim.fn.expand("%")
-      local cmd = string.format("silent !black --quiet %s", pth)
+      local black = string.format("silent !black --quiet %s", pth)
+      local isort = string.format("silent !isort %s", pth)
       nmap("<leader>f",
         function()
-          vim.cmd(cmd)
-        end, "Format current buffer with Black")
+          vim.cmd(black)
+          vim.cmd(isort)
+        end, "Format current buffer with Black and isort")
     end
   end
 
