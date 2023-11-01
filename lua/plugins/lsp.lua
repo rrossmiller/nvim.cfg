@@ -73,7 +73,7 @@ local function cfg()
     pyright = {},
     rust_analyzer = {},
     tsserver = {},
-    -- html = { filetypes = { 'html', 'twig', 'hbs' } },
+    html = { filetypes = { 'html' } },
     lua_ls = {
       Lua = {
         workspace = { checkThirdParty = false },
