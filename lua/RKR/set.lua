@@ -3,7 +3,7 @@ vim.o.mouse = 'a'
 
 -- line height
 --vim.opt.lsp = 4
-vim.o.cmdheight=0
+vim.o.cmdheight = 0
 
 -- Make line numbers default
 -- vim.wo.number = true
@@ -49,6 +49,13 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 vim.o.colorcolumn = "" -- shows bar where new line "should" be
+vim.keymap.set('n', '<leader>CC', function()
+    if vim.o.colorcolumn == "" then
+        vim.o.colorcolumn = "80"
+    else
+        vim.o.colorcolumn = ""
+    end
+end, { desc = 'toggle colorcolumn' })
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -72,5 +79,3 @@ vim.o.breakindent = true
 
 -- spell check for txt, md files
 -- vim.cmd("filetype plugin on") -- should be on by default
-
-
