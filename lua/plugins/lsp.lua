@@ -48,13 +48,16 @@ local function cfg()
     local ft = vim.bo.filetype
     if ft == "python" then
       local pth = vim.fn.expand("%")
-      local black = string.format("silent !black --quiet %s", pth)
+      -- local black = string.format("silent !black --quiet %s", pth)
       local isort = string.format("silent !isort %s", pth)
+      local ruff = string.format("silent !ruff format %s", pth)
       nmap("<leader>f",
         function()
-          vim.cmd(black)
+          -- vim.cmd(black)
+          vim.cmd(ruff)
           vim.cmd(isort)
-        end, "Format current buffer with Black and isort")
+        -- end, "Format current buffer with Black and isort")
+        end, "Format current buffer with Ruff and isort")
     end
   end
 
@@ -80,6 +83,14 @@ local function cfg()
         telemetry = { enable = false },
       },
     },
+    --   require 'lspconfig'.ruff_lsp.setup {
+    --     init_options = {
+    --       settings = {
+    --         -- Any extra CLI arguments for `ruff` go here.
+    --         args = {},
+    --       }
+    --     }
+    --   }
   }
 
   -- Setup neovim lua configuration

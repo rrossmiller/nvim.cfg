@@ -122,4 +122,5 @@ vim.keymap.set("n", "<leader>QQ", function()
     vim.cmd("Neotree close")
     vim.cmd("wa")
     vim.cmd("qa")
-end)
+end, { desc = "Exit Neovim" }
+)
