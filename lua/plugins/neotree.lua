@@ -107,10 +107,10 @@ return {
                     ["<esc>"] = "cancel", -- close preview or floating neo-tree window
                     ["<Tab>"] = { "toggle_preview", config = { use_float = true } },
                     ["l"] = "focus_preview",
-                    -- ["S"] = "open_split",
-                    ["s"] = "split_with_window_picker",
-                    -- ["S"] = "open_vsplit",
-                    -- ["S"] = "split_with_window_picker",
+                    -- ["s"] = "open_split",
+                    -- ["s"] = "split_with_window_picker",
+                    -- ["s"] = "open_vsplit",
+                    -- ["s"] = "split_with_window_picker",
                     -- ["s"] = "vsplit_with_window_picker",
                     ["t"] = "open_tabnew",
                     -- ["<cr>"] = "open_drop",
@@ -180,7 +180,7 @@ return {
                     --               -- the current file is changed while the tree is open.
                     leave_dirs_open = false,            -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
                 },
-                group_empty_dirs = true,               -- when true, empty folders will be grouped together
+                group_empty_dirs = true,                -- when true, empty folders will be grouped together
                 hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                 -- in whatever position is specified in window.position
                 -- "open_current",  -- netrw disabled, opening a directory opens within the

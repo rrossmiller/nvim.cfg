@@ -24,11 +24,21 @@
         ],
         "description": "Println"
     },
-    "Tests": {
-        "prefix": "tests",
+    "Tests Module": {
+        "prefix": "tmod",
         "body": [
             "#[cfg(test)]",
             "mod tests {",
+            "\t#[test]",
+            "\tfn t1() {",
+            "\t\tassert_eq!(true,false);",
+            "\t}\n}"
+        ],
+        "description": "testing boilerplate"
+    },
+    "Tests": {
+        "prefix": "tfn",
+        "body": [
             "\t#[test]",
             "\tfn t1() {",
             "\t\tassert_eq!(true,false);",
