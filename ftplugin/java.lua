@@ -56,6 +56,7 @@ local on_attach = function(client, bufnr)
         vim.o.shiftwidth = 4   -- Number of spaces inserted when indenting
 
         vim.lsp.buf.format()
+        jdtls.organize_imports()
     end, bufopts, "Format file")
 
     -- Java extensions provided by jdtls
@@ -170,11 +171,11 @@ local config = {
 
         -- The jar file is located where jdtls was installed. This will need to be updated
         -- to the location where you installed jdtls
-        '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.28.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
+        '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.29.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
 
         -- The configuration for jdtls is also placed where jdtls was installed. This will
         -- need to be updated depending on your environment
-        '-configuration', '/opt/homebrew/Cellar/jdtls/1.28.0/libexec/config_mac_arm',
+        '-configuration', '/opt/homebrew/Cellar/jdtls/1.29.0/libexec/config_mac_arm',
 
         -- Use the workspace_folder defined above to store data for this project
         '-data', workspace_folder,
