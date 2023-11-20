@@ -56,7 +56,7 @@ local function cfg()
           -- vim.cmd(black)
           vim.cmd(ruff)
           vim.cmd(isort)
-        -- end, "Format current buffer with Black and isort")
+          -- end, "Format current buffer with Black and isort")
         end, "Format current buffer with Ruff and isort")
     end
   end
@@ -83,14 +83,6 @@ local function cfg()
         telemetry = { enable = false },
       },
     },
-    --   require 'lspconfig'.ruff_lsp.setup {
-    --     init_options = {
-    --       settings = {
-    --         -- Any extra CLI arguments for `ruff` go here.
-    --         args = {},
-    --       }
-    --     }
-    --   }
   }
 
   -- Setup neovim lua configuration
