@@ -58,6 +58,15 @@ local function cfg()
           vim.cmd(isort)
           -- end, "Format current buffer with Black and isort")
         end, "Format current buffer with Ruff and isort")
+    elseif ft == "sh" then
+      local pth = vim.fn.expand("%")
+      -- local black = string.format("silent !black --quiet %s", pth)
+      local shfmt = string.format("silent !shfmt -w %s", pth)
+      nmap("<leader>f",
+        function()
+          vim.cmd(shfmt)
+          -- end, "Format current buffer with Black and isort")
+        end, "Format current buffer with shfmt")
     end
   end
 
@@ -71,7 +80,6 @@ local function cfg()
   --  If you want to override the default filetypes that your language server will attach to you can
   --  define the property 'filetypes' to the map in question.
   local servers = {
-    -- clangd = {},
     gopls = {},
     pyright = {},
     rust_analyzer = {},
@@ -83,6 +91,7 @@ local function cfg()
         telemetry = { enable = false },
       },
     },
+    clangd = {},
   }
 
   -- Setup neovim lua configuration
