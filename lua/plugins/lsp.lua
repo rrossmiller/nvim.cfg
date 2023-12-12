@@ -58,6 +58,12 @@ local function cfg()
           vim.cmd(isort)
           -- end, "Format current buffer with Black and isort")
         end, "Format current buffer with Ruff and isort")
+      -- elseif ft == "json" then
+      --   nmap("<leader>f",
+      --     function()
+      --       vim.cmd("!jq .")
+      --       -- end, "Format current buffer with Black and isort")
+      --     end, "Format current buffer with jq")
     end
   end
 
@@ -83,6 +89,9 @@ local function cfg()
         telemetry = { enable = false },
       },
     },
+    jsonls = {
+
+    }
   }
 
   -- Setup neovim lua configuration
