@@ -46,8 +46,8 @@ local function cfg()
     end, { desc = 'Format current buffer with LSP' })
 
     local ft = vim.bo.filetype
+    local pth = vim.fn.expand("%")
     if ft == "python" then
-      local pth = vim.fn.expand("%")
       -- local black = string.format("silent !black --quiet %s", pth)
       local isort = string.format("silent !isort %s", pth)
       local ruff = string.format("silent !ruff format %s", pth)
@@ -59,7 +59,6 @@ local function cfg()
           -- end, "Format current buffer with Black and isort")
         end, "Format current buffer with Ruff and isort")
     elseif ft == "sh" then
-      local pth = vim.fn.expand("%")
       -- local black = string.format("silent !black --quiet %s", pth)
       local shfmt = string.format("silent !shfmt -w %s", pth)
       nmap("<leader>f",
@@ -67,6 +66,13 @@ local function cfg()
           vim.cmd(shfmt)
           -- end, "Format current buffer with Black and isort")
         end, "Format current buffer with shfmt")
+    elseif ft == "typescriptreact" or ft == 'javascriptreact' or ft == 'javascript' or ft == 'typescript' then
+      local prettier = string.format("silent !prettier -w %s", pth)
+      nmap("<leader>f",
+        function()
+          vim.cmd(prettier)
+          -- end, "Format current buffer with Black and isort")
+        end, "Format current buffer with prettier")
     end
   end
 
