@@ -58,6 +58,12 @@ local function cfg()
           vim.cmd(isort)
           -- end, "Format current buffer with Black and isort")
         end, "Format current buffer with Ruff and isort")
+      -- elseif ft == "json" then
+      --   nmap("<leader>f",
+      --     function()
+      --       vim.cmd("!jq .")
+      --       -- end, "Format current buffer with Black and isort")
+      --     end, "Format current buffer with jq")
     elseif ft == "sh" then
       -- local black = string.format("silent !black --quiet %s", pth)
       local shfmt = string.format("silent !shfmt -w %s", pth)
@@ -96,6 +102,9 @@ local function cfg()
         workspace = { checkThirdParty = false },
         telemetry = { enable = false },
       },
+    },
+    jsonls = {
+
     },
     clangd = {},
   }
