@@ -106,9 +106,9 @@ return {
     -- vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
     -- vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
     -- swapping buffers between windows
-    vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
-    vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
-    vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
-    vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+    vim.keymap.set('n', '<leader>bh', require('smart-splits').swap_buf_left)
+    vim.keymap.set('n', '<leader>bj', require('smart-splits').swap_buf_down)
+    vim.keymap.set('n', '<leader>bk', require('smart-splits').swap_buf_up)
+    vim.keymap.set('n', '<leader>bl', require('smart-splits').swap_buf_right)
   end
 }
