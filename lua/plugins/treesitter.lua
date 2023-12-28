@@ -83,15 +83,15 @@ return { {
             ['[]'] = '@class.outer',
           },
         },
-        swap = {
-          enable = true,
-          swap_next = {
-            ['<leader>a'] = '@parameter.inner',
-          },
-          swap_previous = {
-            ['<leader>A'] = '@parameter.inner',
-          },
-        },
+        -- swap = {
+        --   enable = true,
+        --   swap_next = {
+        --     ['<leader>a'] = '@parameter.inner',
+        --   },
+        --   swap_previous = {
+        --     ['<leader>A'] = '@parameter.inner',
+        --   },
+        -- },
       },
     }
   end
@@ -100,7 +100,7 @@ return { {
   {
     'nvim-treesitter/playground',
     keys = {
-      { "<leader>tp", "<cmd>TSPlaygroundToggle<cr>", desc = "TS toggle playground" },
+      { "<leader>tP", "<cmd>TSPlaygroundToggle<cr>", desc = "TS toggle playground" },
     },
   }
 }

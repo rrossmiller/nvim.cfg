@@ -85,8 +85,8 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 
 -- remap ctrl w to option w
-vim.keymap.set("n", "∑", "<C-w>")
 vim.keymap.set("n", "∑h", "<C-w>s")
+vim.keymap.set("n", "∑v", "<C-w>v")
 
 -- move around split windows
 vim.keymap.set("n", "˙", "<C-w>h")
