@@ -116,7 +116,11 @@ end)
 vim.keymap.set("n", "<leader>pt", function()
     -- vim.cmd("NvimTreeFocus")
     vim.cmd("Neotree focus")
-end)
+end, { desc = 'open Neotree' })
+
+vim.keymap.set("n", "<leader>po", function()
+    vim.cmd("Oil --float")
+end, { desc = 'open Oil in a float' })
 
 vim.keymap.set("n", "<leader>QQ", function()
     vim.cmd("Neotree close")

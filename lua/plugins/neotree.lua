@@ -156,9 +156,9 @@ return {
                     visible = false, -- when true, they will just be displayed differently than normal items
                     hide_dotfiles = false,
                     hide_gitignored = false,
-                    hide_hidden = true, -- only works on Windows for hidden files/directories
+                    hide_hidden = false, -- only works on Windows for hidden files/directories
                     hide_by_name = {
-                        ".git"
+                        -- ".git"
                     },
                     hide_by_pattern = { -- uses glob style patterns
                         --"*.meta",
