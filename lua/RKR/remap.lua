@@ -96,7 +96,7 @@ vim.keymap.set("n", "¬", "<C-w>l")
 
 
 -- toggle auto save
--- vim.api.nvim_set_keymap("n", "<leader>s", ":ASToggle<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 
 -- restart lsp
 vim.keymap.set("n", "<leader>lr", function()
