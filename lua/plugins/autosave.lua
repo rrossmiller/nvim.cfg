@@ -17,14 +17,21 @@ return {
             -- return false: if it's not ok to be saved
             condition = function(buf)
                 local fn = vim.fn
-                local utils = require("auto-save.utils.data")
+                -- local utils = require("auto-save.utils.data")
 
-                if
-                    fn.getbufvar(buf, "&modifiable") == 1 and
-                    utils.not_in(fn.getbufvar(buf, "&filetype"), { 'neo-tree' }) then
-                    return true              -- met condition(s), can save
+                if vim.bo[buf].filetype == "harpoon"
+                    or vim.bo[buf].filetype == "neo-tree"
+                    or vim.bo[buf].filetype == ""
+                then
+                    return false
                 end
-                return false                 -- can't save
+
+                if fn.getbufvar(buf, "&modifiable") == 1
+                    and vim.bo[buf].filetype ~= "harpoon"
+                then
+                    return true -- met condition(s), can save
+                end
+                return true
             end,
             write_all_buffers = false,       -- write all buffers when the current one meets `condition`
             debounce_delay = 135,            -- saves the file at most every `debounce_delay` milliseconds

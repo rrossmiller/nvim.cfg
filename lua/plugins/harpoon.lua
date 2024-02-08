@@ -27,7 +27,8 @@ return {
     --
 
     vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end, { desc = "Add to harpoon" })
-    vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+    vim.keymap.set("n", "<leader>hw", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+      { desc = "Open harpoon window" })
 
     vim.keymap.set("n", "å", function() harpoon:list():select(1) end)
     vim.keymap.set("n", "ß", function() harpoon:list():select(2) end)
@@ -37,7 +38,6 @@ return {
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set("n", "∏", function() harpoon:list():prev() end)
     vim.keymap.set("n", "˜", function() harpoon:list():next() end)
-    vim.keymap.set("n", "<leader>hw", function() toggle_telescope(harpoon:list()) end,
-      { desc = "Open harpoon window" })
+    vim.keymap.set("n", "<leader>ht", function() toggle_telescope(harpoon:list()) end, { desc = "telescope harpoon window" })
   end
 }
