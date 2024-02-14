@@ -10,7 +10,7 @@
 --
 local home = os.getenv('HOME')
 local jdtls = require('jdtls')
-
+local jdtls_version = "1.30.1"
 
 -- File types that signify a Java project's root directory. This will be
 -- used by eclipse to determine what constitutes a workspace
@@ -156,7 +156,8 @@ local config = {
     -- for the full list of options
     cmd = {
         -- home .. "java",
-        home .. "/.sdkman/candidates/java/17.0.8-tem/bin/java",
+        -- home .. "/.sdkman/candidates/java/17.0.8-tem/bin/java",
+        home .. "/.sdkman/candidates/java/current/bin/java",
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -171,11 +172,11 @@ local config = {
 
         -- The jar file is located where jdtls was installed. This will need to be updated
         -- to the location where you installed jdtls
-        '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.29.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
+        '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/' .. jdtls_version .. '/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
 
         -- The configuration for jdtls is also placed where jdtls was installed. This will
         -- need to be updated depending on your environment
-        '-configuration', '/opt/homebrew/Cellar/jdtls/1.29.0/libexec/config_mac_arm',
+        '-configuration', '/opt/homebrew/Cellar/jdtls/' .. jdtls_version .. '/libexec/config_mac_arm',
 
         -- Use the workspace_folder defined above to store data for this project
         '-data', workspace_folder,
