@@ -40,7 +40,7 @@ vim.opt.incsearch = true
 
 vim.o.termguicolors = true
 
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 2
 vim.opt.signcolumn = "no" -- no or yes
 vim.opt.isfname:append("@-@")
 
