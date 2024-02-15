@@ -59,6 +59,8 @@ local on_attach = function(client, bufnr)
         jdtls.organize_imports()
     end, bufopts, "Format file")
 
+    --restart ls
+    nnoremap("<leader>lr", vim.cmd("JdtRestart"), bufopts, "Restart jdtls")
     -- Java extensions provided by jdtls
     nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
     nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
