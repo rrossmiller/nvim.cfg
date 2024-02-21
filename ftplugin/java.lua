@@ -10,7 +10,7 @@
 --
 local home = os.getenv('HOME')
 local jdtls = require('jdtls')
-local jdtls_version = "1.30.1"
+local jdtls_version = "1.32.0"
 
 -- File types that signify a Java project's root directory. This will be
 -- used by eclipse to determine what constitutes a workspace
@@ -60,7 +60,7 @@ local on_attach = function(client, bufnr)
     end, bufopts, "Format file")
 
     --restart ls
-    nnoremap("<leader>lr", vim.cmd("JdtRestart"), bufopts, "Restart jdtls")
+    nnoremap("<leader>jr", vim.cmd("JdtRestart"), bufopts, "Restart jdtls")
     -- Java extensions provided by jdtls
     nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
     nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
@@ -174,7 +174,8 @@ local config = {
 
         -- The jar file is located where jdtls was installed. This will need to be updated
         -- to the location where you installed jdtls
-        '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/' .. jdtls_version .. '/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
+        '-jar', vim.fn.glob('/opt/homebrew/Cellar/jdtls/' ..
+    jdtls_version .. '/libexec/plugins/org.eclipse.equinox.launcher_*.jar'),
 
         -- The configuration for jdtls is also placed where jdtls was installed. This will
         -- need to be updated depending on your environment

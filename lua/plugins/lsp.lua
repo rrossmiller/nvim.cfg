@@ -1,7 +1,6 @@
 local function cfg()
   -- [[ Configure LSP ]]
   --  This function gets run when an LSP connects to a particular buffer.
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format current buffer' })
   local on_attach = function(_, bufnr)
     -- NOTE: Remember that lua is a real programming language, and as such it is possible
     -- to define small helper and utility functions so you don't have to repeat yourself
@@ -48,36 +47,25 @@ local function cfg()
     local ft = vim.bo.filetype
     local pth = vim.fn.expand("%")
     if ft == "python" then
-      -- local black = string.format("silent !black --quiet %s", pth)
       local isort = string.format("silent !isort %s", pth)
       local ruff = string.format("silent !ruff format %s", pth)
-      nmap("<leader>f",
-        function()
-          -- vim.cmd(black)
-          vim.cmd(ruff)
-          vim.cmd(isort)
-          -- end, "Format current buffer with Black and isort")
-        end, "Format current buffer with Ruff and isort")
+      nmap("<leader>f", function()
+        vim.cmd(ruff)
+        vim.cmd(isort)
+      end, "Format current buffer with Ruff and isort")
       -- elseif ft == "json" then
       --   nmap("<leader>f",
       --     function()
       --       vim.cmd("!jq .")
       --     end, "Format current buffer with jq")
     elseif ft == "sh" then
-      -- local black = string.format("silent !black --quiet %s", pth)
       local shfmt = string.format("silent !shfmt -w %s", pth)
-      nmap("<leader>f",
-        function()
-          vim.cmd(shfmt)
-          -- end, "Format current buffer with Black and isort")
-        end, "Format current buffer with shfmt")
+      nmap("<leader>f", function() vim.cmd(shfmt) end, "Format current buffer with shfmt")
     elseif ft == "typescriptreact" or ft == 'javascriptreact' or ft == 'javascript' or ft == 'typescript' then
       local prettier = string.format("silent !prettier --tab-width 2 -w %s", pth)
-      nmap("<leader>f",
-        function()
-          vim.cmd(prettier)
-          -- end, "Format current buffer with Black and isort")
-        end, "Format current buffer with prettier")
+      nmap("<leader>f", function() vim.cmd(prettier) end, "Format current buffer with prettier")
+    else
+      vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format current buffer' })
     end
   end
 
