@@ -6,28 +6,53 @@
     // Example:
     "mains": {
         "prefix": "mains",
-        "body": ["package main\n", "func main()  {\n\t$0\n}"],
+        "body": [
+            "package main\n\nimport \"fmt\"",
+            "\nfunc main()  {\n\tfmt.Println(\"Hello, world!\")\n\t$0\n}"
+        ],
         "description": "Log output to console"
     },
     "Print to console": {
         "prefix": "fp",
-        "body": ["fmt.Println($1)"],
+        "body": [
+            "fmt.Println($1)"
+        ],
         "description": "Println"
     },
     "Printf to console": {
         "prefix": "fpf",
-        "body": ["fmt.Printf(\"$1\\n\",$2)"],
+        "body": [
+            "fmt.Printf(\"$1\\n\",$2)"
+        ],
         "description": "Println"
     },
     "Check Error": {
         "prefix": "cherr",
-        "body": ["if err != nil {\npanic(err)$1\n}"],
-        "description": "Println"
+        "body": [
+            "if err != nil {\npanic(err)$1\n}"
+        ],
+        "description": "panic on error"
+    },
+    "Check Error Return": {
+        "prefix": "cherrr",
+        "body": [
+            "if err != nil {\nreturn err\n}"
+        ],
+        "description": "check err return"
     },
     // "Stringer": {
     //     "prefix": "Stringer",
     //     "body": ["func ($1) String() string{$2}"],
     //     "description": "stringer"
     // }
+    "handler": {
+        "prefix": "handler",
+        "body": [
+            "func $1(node *sitter.Node, src []byte) string {",
+            "var sb strings.Builder",
+            "fmt.Println(\"****\")\nfmt.Println(node)\n fmt.Println(node.ChildCount())\n fmt.Println(\"****\")\n",
+            "\t$2",
+            "return sb.String()\n}"
+        ]
+    }
 }
-

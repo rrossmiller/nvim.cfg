@@ -94,6 +94,7 @@ local function cfg()
 
     },
     clangd = {},
+    arduino_language_server = {},
   }
 
   -- Setup neovim lua configuration
@@ -112,12 +113,28 @@ local function cfg()
 
   mason_lspconfig.setup_handlers {
     function(server_name)
-      require('lspconfig')[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-      }
+      if server_name == "arduino_language_server" then
+        require('lspconfig')[server_name].setup {
+          capabilities = capabilities,
+          on_attach = on_attach,
+          cmd = {
+            "arduino-language-server",
+            "-cli-config", "~/Library/Arduino15/arduino-cli.yaml",
+            -- "-fqbn", "arduino:uvr:uno",
+            "-cli", "/opt/homebrew/bin/arduino-cli",
+            -- "-clangd", "/usr/bin/clangd"
+          },
+          settings = servers[server_name],
+          filetypes = (servers[server_name] or {}).filetypes,
+        }
+      else
+        require('lspconfig')[server_name].setup {
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = servers[server_name],
+          filetypes = (servers[server_name] or {}).filetypes,
+        }
+      end
     end
   }
 end

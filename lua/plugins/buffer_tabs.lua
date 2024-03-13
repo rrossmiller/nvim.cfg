@@ -6,21 +6,19 @@ return {
     event = "VeryLazy",
     keys = {
         -- alt-shift-w
-        { "„",       "<Cmd>bd<CR>",                    desc = "close current tab" },
-        { "<leader>p", "<Cmd>BufferLinePick<CR>",        desc = "pick tab" },
-        { "<leader>c", "<Cmd>BufferLinePickClose<CR>",   desc = "pick tab to close" },
+        { "„", "<Cmd>bd<CR>", desc = "close current tab" },
+        { "<leader>p", "<Cmd>BufferLinePick<CR>", desc = "pick tab" },
+        { "<leader>c", "<Cmd>BufferLinePickClose<CR>", desc = "pick tab to close" },
         { "<leader>C", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others" },
-        { "Ò",        "<Cmd>BufferLineCycleNext<CR>",   desc = "next tab" },
-        { "Ó",        "<Cmd>BufferLineCyclePrev<CR>",   desc = "prev tab" },
+        { "Ò", "<Cmd>BufferLineCycleNext<CR>", desc = "next tab" },
+        { "Ó", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev tab" },
         -- { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle pin" },
         -- { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
     },
 
     opts = {
         options = {
-            -- stylua: ignore
             close_command = function(n) require("mini.bufremove").delete(n, false) end,
-            -- stylua: ignore
             right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
             diagnostics = "nvim_lsp",
 
