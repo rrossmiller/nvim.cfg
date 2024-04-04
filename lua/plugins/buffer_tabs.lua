@@ -7,6 +7,16 @@ return {
     keys = {
         -- alt-shift-w
         { "„", "<Cmd>bd<CR>", desc = "close current tab" },
+        {
+            "Œ",
+            -- function()
+            -- vim.cmd('bd')
+            -- vim.cmd('BufferLineCloseOthers')
+            "<Cmd>bd<CR><Cmd>BufferLineCloseOthers<CR>"
+            -- end
+            ,
+            desc = "close all"
+        },
         { "<leader>p", "<Cmd>BufferLinePick<CR>", desc = "pick tab" },
         { "<leader>c", "<Cmd>BufferLinePickClose<CR>", desc = "pick tab to close" },
         { "<leader>C", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others" },
@@ -14,6 +24,7 @@ return {
         { "Ó", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev tab" },
         -- { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle pin" },
         -- { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+        --„Œ
     },
 
     opts = {

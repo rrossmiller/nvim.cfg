@@ -27,7 +27,7 @@ vim.keymap.set("n", "<C-i>", function() vim.cmd("Lazy install") end)
 
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- toggle wrap
+-- toggle wrap 
 vim.keymap.set("n", "Ω", function()
     local wrap = vim.opt.wrap:get()
     if not wrap then

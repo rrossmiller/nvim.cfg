@@ -53,6 +53,11 @@ local function cfg()
         vim.cmd(ruff)
         vim.cmd(isort)
       end, "Format current buffer with Ruff and isort")
+
+      nmap("Ï", function()
+        vim.cmd(ruff)
+        vim.cmd(isort)
+      end, "Format current buffer with Ruff and isort")
       -- elseif ft == "json" then
       --   nmap("<leader>f",
       --     function()
@@ -61,11 +66,14 @@ local function cfg()
     elseif ft == "sh" then
       local shfmt = string.format("silent !shfmt -w %s", pth)
       nmap("<leader>f", function() vim.cmd(shfmt) end, "Format current buffer with shfmt")
+      nmap("Ï", function() vim.cmd(shfmt) end, "Format current buffer with shfmt")
     elseif ft == "typescriptreact" or ft == 'javascriptreact' or ft == 'javascript' or ft == 'typescript' then
       local prettier = string.format("silent !prettier --tab-width 2 -w %s", pth)
       nmap("<leader>f", function() vim.cmd(prettier) end, "Format current buffer with prettier")
+      nmap("Ï", function() vim.cmd(prettier) end, "Format current buffer with prettier")
     else
       vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format current buffer' })
+      vim.keymap.set('n', 'Ï', vim.lsp.buf.format, { desc = 'Format current buffer' })
     end
   end
 

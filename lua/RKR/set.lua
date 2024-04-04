@@ -22,6 +22,8 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+-- wrap on whitespace
+vim.opt.linebreak = true
 vim.opt.wrap = false
 
 -- Case-insensitive searching UNLESS \C or capital in search
@@ -35,8 +37,9 @@ vim.opt.backup = false
 vim.o.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
-vim.opt.hlsearch = false
+-- Set highlight on search
 vim.opt.incsearch = true
+vim.opt.hls = false
 
 vim.o.termguicolors = true
 
@@ -61,8 +64,6 @@ end, { desc = 'toggle colorcolumn' })
 vim.o.completeopt = 'menuone,noselect'
 
 
--- Set highlight on search
-vim.o.hlsearch = false
 
 -- gsql filetype
 -- vim.filetype.add({
