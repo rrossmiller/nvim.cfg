@@ -69,8 +69,8 @@ local function cfg()
       nmap("Ï", function() vim.cmd(shfmt) end, "Format current buffer with shfmt")
     elseif ft == "typescriptreact" or ft == 'javascriptreact' or ft == 'javascript' or ft == 'typescript' then
       local prettier = string.format("silent !prettier --tab-width 2 -w %s", pth)
-      nmap("<leader>f", function() vim.cmd(prettier) end, "Format current buffer with prettier")
-      nmap("Ï", function() vim.cmd(prettier) end, "Format current buffer with prettier")
+      nmap("<leader>f", function() vim.cmd(prettier) end, "Format with prettier")
+      nmap("Ï", function() vim.cmd(prettier) end, "Format with prettier")
     else
       vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format current buffer' })
       vim.keymap.set('n', 'Ï', vim.lsp.buf.format, { desc = 'Format current buffer' })

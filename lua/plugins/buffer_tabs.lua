@@ -18,7 +18,8 @@ return {
             desc = "close all"
         },
         { "<leader>p", "<Cmd>BufferLinePick<CR>", desc = "pick tab" },
-        { "<leader>c", "<Cmd>BufferLinePickClose<CR>", desc = "pick tab to close" },
+        { "<leader>cc", "<Cmd>BufferLinePickClose<CR>", desc = "pick tab to close" },
+        { "<leader>cr", "<Cmd>BufferLineCloseRight<CR>", desc = "close all tabs to the right" },
         { "<leader>C", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others" },
         { "Ò", "<Cmd>BufferLineCycleNext<CR>", desc = "next tab" },
         { "Ó", "<Cmd>BufferLineCyclePrev<CR>", desc = "prev tab" },
