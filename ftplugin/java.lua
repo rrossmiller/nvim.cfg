@@ -10,7 +10,7 @@
 --
 local home = os.getenv('HOME')
 local jdtls = require('jdtls')
-local jdtls_version = "1.32.0"
+local jdtls_version = "1.33.0"
 
 -- File types that signify a Java project's root directory. This will be
 -- used by eclipse to determine what constitutes a workspace

@@ -50,8 +50,18 @@
         "body": [
             "func $1(node *sitter.Node, src []byte) string {",
             "var sb strings.Builder",
-            "fmt.Println(\"****\")\nfmt.Println(node)\n fmt.Println(node.ChildCount())\n fmt.Println(\"****\")\n",
-            "\t$2",
+            "fmt.Println(\"****\")",
+            "fmt.Println(node, node.ChildCount())",
+            "for i := 0; i < int(node.ChildCount()); i++ {",
+            "child := node.Child(i)",
+            "var txt string",
+            "switch child.Type() {",
+            "default:",
+            "txt = util.GetNodeText(child, src)",
+            "}",
+            "sb.WriteString(txt)",
+            "}",
+            "fmt.Println(\"****\")\n",
             "return sb.String()\n}"
         ]
     }
