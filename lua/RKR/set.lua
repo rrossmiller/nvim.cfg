@@ -44,7 +44,7 @@ vim.opt.hls = false
 vim.o.termguicolors = true
 
 vim.opt.scrolloff = 2
-vim.opt.signcolumn = "no" -- no or yes
+vim.opt.signcolumn = "yes" -- no or yes
 vim.opt.isfname:append("@-@")
 
 -- Decrease update time
