@@ -19,13 +19,14 @@ return {
         }
         )
         -- Init toggle term immediately so the first time it's opened, there's no waiting for the shell
-        vim.api.nvim_create_autocmd({ "VimEnter" }, {
-            callback = function()
-                -- TODO: Change dir to currencly opened directory
-                -- OR, change VimEnter to whenever Vim is done loading
-                vim.cmd("ToggleTerm")
-                vim.cmd("ToggleTerm")
-            end,
-        })
+        -- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+        --     callback = function()
+        --         -- TODO: Change dir to currencly opened directory
+        --         -- OR, change VimEnter to whenever Vim is done loading
+        --
+        --         -- vim.cmd("ToggleTerm")
+        --         -- vim.cmd("ToggleTerm")
+        --     end,
+        -- })
     end
 }

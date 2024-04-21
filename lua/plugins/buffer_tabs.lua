@@ -8,7 +8,7 @@ return {
         -- alt-shift-w
         { "„", "<Cmd>bd<CR>", desc = "close current tab" },
         {
-            "Œ",
+            "Œ", -- shift-opt-q
             -- function()
             -- vim.cmd('bd')
             -- vim.cmd('BufferLineCloseOthers')
@@ -17,7 +17,7 @@ return {
             ,
             desc = "close all"
         },
-        { "<leader>p", "<Cmd>BufferLinePick<CR>", desc = "pick tab" },
+        { "<leader>pp", "<Cmd>BufferLinePick<CR>", desc = "pick tab" },
         { "<leader>cc", "<Cmd>BufferLinePickClose<CR>", desc = "pick tab to close" },
         { "<leader>cr", "<Cmd>BufferLineCloseRight<CR>", desc = "close all tabs to the right" },
         { "<leader>C", "<Cmd>BufferLineCloseOthers<CR>", desc = "close others" },
