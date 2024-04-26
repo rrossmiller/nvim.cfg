@@ -103,6 +103,7 @@ local function cfg()
     },
     clangd = {},
     arduino_language_server = {},
+    gleam = { ensure_installed = false }
   }
 
   -- Setup neovim lua configuration
@@ -116,8 +117,12 @@ local function cfg()
   local mason_lspconfig = require 'mason-lspconfig'
 
   mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(servers),
+
+    --TODO: filter servers by ensure_installed
+      ensure_installed = vim.tbl_keys(servers),
   }
+
+  require('lspconfig').gleam.setup({})
 
   mason_lspconfig.setup_handlers {
     function(server_name)
@@ -146,6 +151,7 @@ local function cfg()
     end
   }
 end
+
 
 return {
   {

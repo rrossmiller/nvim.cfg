@@ -1,1 +1,4 @@
-return { 'jmeekhof/gsql-vim' }
+return {
+    { 'jmeekhof/gsql-vim' },
+    { 'dylon/vim-antlr' }
+}
