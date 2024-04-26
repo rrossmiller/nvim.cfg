@@ -88,7 +88,22 @@ local function cfg()
   --  define the property 'filetypes' to the map in question.
   local servers = {
     gopls = {},
-    pyright = {},
+    ruff_lsp = {
+
+    },
+    pyright = {
+      settings = {
+        pyright = {
+          disableOrganizeImports = true, -- Using Ruff
+        },
+        python = {
+          analysis = {
+            ignore = { '*' },         -- Using Ruff
+            typeCheckingMode = 'off', -- Using mypy
+          },
+        },
+      },
+    },
     rust_analyzer = {},
     tsserver = {},
     html = { filetypes = { 'html' } },
@@ -119,7 +134,7 @@ local function cfg()
   mason_lspconfig.setup {
 
     --TODO: filter servers by ensure_installed
-      ensure_installed = vim.tbl_keys(servers),
+    ensure_installed = vim.tbl_keys(servers),
   }
 
   require('lspconfig').gleam.setup({})
