@@ -130,19 +130,27 @@ local function cfg()
 
   -- Ensure the servers above are installed
   local mason_lspconfig = require 'mason-lspconfig'
+  local lspconfig = require 'lspconfig'
 
+  -- filter LSPs to install
+  local auto_install_servers = {}
+  for k, _ in pairs(servers) do
+    if servers[k].ensure_installed ~= false then
+      table.insert(auto_install_servers, k)
+    end
+  end
+  -- for _,v in pairs(auto_install_servers) do
+  --   print(v)
+  -- end
   mason_lspconfig.setup {
-
     --TODO: filter servers by ensure_installed
-    ensure_installed = vim.tbl_keys(servers),
+    ensure_installed = vim.tbl_values(auto_install_servers),
   }
-
-  require('lspconfig').gleam.setup({})
 
   mason_lspconfig.setup_handlers {
     function(server_name)
       if server_name == "arduino_language_server" then
-        require('lspconfig')[server_name].setup {
+        lspconfig[server_name].setup {
           capabilities = capabilities,
           on_attach = on_attach,
           cmd = {
@@ -156,7 +164,7 @@ local function cfg()
           filetypes = (servers[server_name] or {}).filetypes,
         }
       else
-        require('lspconfig')[server_name].setup {
+        lspconfig[server_name].setup {
           capabilities = capabilities,
           on_attach = on_attach,
           settings = servers[server_name],
@@ -200,6 +208,9 @@ return {
 
     config = cfg
   },
+  {
+    'mfussenegger/nvim-jdtls'
+  }
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   event = "VeryLazy",
@@ -269,7 +280,4 @@ return {
   --   --   require 'lsp_signature'.setup(opts)
   --   -- end
   -- },
-  {
-    'mfussenegger/nvim-jdtls'
-  }
 }
