@@ -88,21 +88,19 @@ local function cfg()
   --  define the property 'filetypes' to the map in question.
   local servers = {
     gopls = {},
-    ruff_lsp = {
-
-    },
+    -- ruff_lsp = { },
     pyright = {
-      settings = {
-        pyright = {
-          disableOrganizeImports = true, -- Using Ruff
-        },
-        python = {
-          analysis = {
-            ignore = { '*' },         -- Using Ruff
-            typeCheckingMode = 'off', -- Using mypy
-          },
-        },
-      },
+      -- settings = {
+      -- pyright = {
+      -- disableOrganizeImports = true, -- Using Ruff
+      -- },
+      --   python = {
+      --     analysis = {
+      --       ignore = { '*' }, -- Using Ruff
+      --       -- typeCheckingMode = 'off', -- Using mypy
+      --     },
+      --   },
+      -- },
     },
     rust_analyzer = {},
     tsserver = {},
@@ -120,6 +118,8 @@ local function cfg()
     arduino_language_server = {},
     gleam = { ensure_installed = false }
   }
+  vim.g.zig_fmt_parse_errors = 0
+  vim.g.zig_fmt_autosave = 0
 
   -- Setup neovim lua configuration
   require('neodev').setup()

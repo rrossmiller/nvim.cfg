@@ -34,9 +34,16 @@
             },
             {
                 "language": [
-                    "javascript", "typescript"
+                    "javascript",
+                    "typescript"
                 ],
                 "path": "./js.jsonc"
+            },
+            {
+                "language": [
+                    "zig"
+                ],
+                "path": "./zig.jsonc"
             }
         ]
     }
