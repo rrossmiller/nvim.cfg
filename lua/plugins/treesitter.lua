@@ -11,30 +11,32 @@ return { {
     --
 
     --GSQL
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    parser_config.gsql = {
-      install_info = {
-        url = "https://github.com/rrossmiller/tree-sitter-gsql", -- local path or git repo
-        -- url = "/Users/robrossmiller/Documents/Projects/tree-sitter-gsql", -- local path or git repo
-        files = { "src/parser.c" },                              -- note that some parsers also require src/scanner.c or src/scanner.cc
-        -- optional entries:
-        branch = "main",                                         -- default branch in case of git repo if different from master
-        generate_requires_npm = false,                           -- if stand-alone parser without npm dependencies
-        requires_generate_from_grammar = false,                  -- if folder contains pre-generated src/parser.c
-      },
-      filetype = "gsql",                                         -- if filetype does not match the parser name
-    }
-    vim.filetype.add({
-      extension = {
-        gsql = "gsql"
-
-      }
-    })
+    -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    -- parser_config.gsql = {
+    --   install_info = {
+    --     url = "https://github.com/rrossmiller/tree-sitter-gsql", -- local path or git repo
+    --     -- url = "/Users/robrossmiller/Documents/Projects/tree-sitter-gsql", -- local path or git repo
+    --     files = { "src/parser.c" },                              -- note that some parsers also require src/scanner.c or src/scanner.cc
+    --     -- optional entries:
+    --     branch = "main",                                         -- default branch in case of git repo if different from master
+    --     generate_requires_npm = false,                           -- if stand-alone parser without npm dependencies
+    --     requires_generate_from_grammar = false,                  -- if folder contains pre-generated src/parser.c
+    --   },
+    --   filetype = "gsql",                                         -- if filetype does not match the parser name
+    -- }
+    -- vim.filetype.add({
+    --   extension = {
+    --     gsql = "gsql"
+    --
+    --   }
+    -- })
+    --GSQL
 
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
-      ensure_installed = { 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc',
-        'vim', 'gsql', },
+      ensure_installed = { 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+        -- 'gsql',
+      },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,
