@@ -1,8 +1,5 @@
-local color_scheme = 'catppuccin'
-
 return {
   {
-    --    START TOKYONIGHT
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
@@ -17,7 +14,6 @@ return {
 
   },
   {
-    -- START CATPPUCCIN
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
@@ -76,7 +72,6 @@ return {
     end
   },
   {
-    -- START VSCODE
     "Mofiqul/vscode.nvim",
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
