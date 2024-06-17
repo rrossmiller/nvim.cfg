@@ -1,90 +1,65 @@
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
---
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("t", "<leader>n", function()
+--   vim.cmd "nu"
+-- end)
 
---
--- much of this is directly from  github.com/ThePrimeagen/init.lua
--- Stop lazyvim from taking over tab
-vim.keymap.set("n", "<Tab>", function() vim.cmd("") end)
-
--- suspend vim alt-q = œ
-vim.keymap.set("n", "œ", function() vim.cmd("sus") end)
-
--- tmp install stuff
-vim.keymap.set("n", "<C-i>", function() vim.cmd("Lazy install") end)
-
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
--- toggle wrap 
+-- toggle wrap
 vim.keymap.set("n", "Ω", function()
-    local wrap = vim.opt.wrap:get()
-    if not wrap then
-        vim.opt.wrap = true
-    else
-        vim.opt.wrap = false
-    end
+  local wrap = vim.opt.wrap:get()
+  if not wrap then
+    vim.opt.wrap = true
+  else
+    vim.opt.wrap = false
+  end
 end)
 
-
--- for spamming save (all files)
--- vim.keymap.set("n", "<leader>s", function() vim.cmd("wall") end)
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-
+-- bring line up
 vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set("n", "n", "nzzzv")
+-- vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
---idk what this does
+-- paste from clipboard
 -- vim.keymap.set("x", "<leader>p", [["_dP]])
-
--- next greatest remap ever : asbjornHaland
 -- yank to system clipboard
 -- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- vim.keymap.set("n", "<D-v>", [["+P]])
--- vim.keymap.set("i", "<D-v>", [["+p]])
+-- delete to nowhere?
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
---
-vim.keymap.set("i", "<C-c>", "<Esc>")
---vim.keymap.set("i","<D-z>","") -- TODO: map cmd-z in instert mode to undo
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
 --
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "Ï", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- search and replace all instances
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
--- vim.keymap.set("n", "<leader><leader>", function()
---     print('~')
---     vim.cmd("so")
--- end)
-
 
 -- remap ctrl w to option w
 vim.keymap.set("n", "∑", "<C-w>")
@@ -97,38 +72,32 @@ vim.keymap.set("n", "∆", "<C-w>j")
 vim.keymap.set("n", "˚", "<C-w>k")
 vim.keymap.set("n", "¬", "<C-w>l")
 
-
 -- toggle auto save
 vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 
 -- restart lsp
 vim.keymap.set("n", "<leader>lr", function()
-    vim.cmd("LspRestart")
-    -- vim.cmd("LspStop")
-    -- vim.cmd("LspStart")
-    print("done reloading")
+  vim.cmd "LspRestart"
+  print "done reloading"
 end)
-
 
 -- file tree stuff
 vim.keymap.set("n", "<leader>pT", function()
-    -- vim.cmd("NvimTreeToggle")
-    vim.cmd("Neotree toggle")
-end)
+  -- vim.cmd("NvimTreeToggle")
+  vim.cmd "Neotree toggle"
+end, { desc = "toggle Neotree" })
 
 vim.keymap.set("n", "<leader>pt", function()
-    -- vim.cmd("NvimTreeFocus")
-    vim.cmd("Neotree focus")
-end, { desc = 'open Neotree' })
+  -- vim.cmd("NvimTreeFocus")
+  vim.cmd "Neotree focus"
+end, { desc = "open Neotree" })
 
 vim.keymap.set("n", "<leader>po", function()
-    vim.cmd("Oil --float")
-end, { desc = 'open Oil in a float' })
-
+  vim.cmd "Oil --float"
+end, { desc = "open Oil in a float" })
 
 vim.keymap.set("n", "<leader>QQ", function()
-    vim.cmd("Neotree close")
-    vim.cmd("wa")
-    vim.cmd("qa")
-end, { desc = "Exit Neovim" }
-)
+  vim.cmd "Neotree close"
+  vim.cmd "wa"
+  vim.cmd "qa"
+end, { desc = "Exit Neovim" })
