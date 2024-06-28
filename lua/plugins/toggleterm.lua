@@ -24,6 +24,7 @@ return {
                 -- TODO: Change dir to currencly opened directory
                 -- OR, change VimEnter to whenever Vim is done loading
 
+                vim.env.tt = true
                 vim.cmd("ToggleTerm")
                 vim.cmd("ToggleTerm")
             end,
