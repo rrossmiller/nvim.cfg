@@ -17,6 +17,13 @@
         ],
         "description": "Println"
     },
+    "Println Debug": {
+        "prefix": "pld",
+        "body": [
+            "println!(\"{:?}\",$1);"
+        ],
+        "description": "Println"
+    },
     "Println blank": {
         "prefix": "plb",
         "body": [
