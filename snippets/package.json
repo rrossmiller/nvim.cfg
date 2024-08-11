@@ -44,6 +44,12 @@
                     "zig"
                 ],
                 "path": "./zig.jsonc"
+            },
+            {
+                "language": [
+                    "cpp"
+                ],
+                "path": "./cpp.jsonc"
             }
         ]
     }
