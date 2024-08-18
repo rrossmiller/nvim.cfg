@@ -36,7 +36,7 @@ return {
         vim.cmd "Neotree close"
         vim.cmd "lua require('persistence').load()"
         -- TODO: close buffers whose type is directory
-        close_directory_buffers()
+        -- close_directory_buffers()
         vim.cmd "Neotree show"
       end,
     },

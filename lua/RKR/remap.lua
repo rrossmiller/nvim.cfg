@@ -73,8 +73,12 @@ vim.keymap.set("n", "˚", "<C-w>k")
 vim.keymap.set("n", "¬", "<C-w>l")
 
 -- move around tabs
-vim.keymap.set("n", "ª", function()vim.cmd "BufferLineMovePrev"end)
-vim.keymap.set("n", "º", function() vim.cmd "BufferLineMoveNext"end)
+vim.keymap.set("n", "ª", function()
+  vim.cmd "BufferLineMovePrev"
+end)
+vim.keymap.set("n", "º", function()
+  vim.cmd "BufferLineMoveNext"
+end)
 
 -- toggle auto save
 vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
@@ -105,3 +109,6 @@ vim.keymap.set("n", "<leader>QQ", function()
   vim.cmd "wa"
   vim.cmd "qa"
 end, { desc = "Exit Neovim" })
+
+-- make a file executable
+vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true })
