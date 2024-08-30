@@ -112,3 +112,5 @@ end, { desc = "Exit Neovim" })
 
 -- make a file executable
 vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })
