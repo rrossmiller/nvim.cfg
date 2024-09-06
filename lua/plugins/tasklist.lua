@@ -1,7 +1,7 @@
 return {
-  -- "rrossmiller/tasklist.nvim",
+  "rrossmiller/tasklist.nvim",
   -- branch='send-update-event',
-  dir = '/Users/robrossmiller/Documents/Projects/tasklist.nvim',
+  -- dir = '/Users/robrossmiller/Documents/Projects/tasklist.nvim',
   config = function(opts)
     local todo = require("tasklist")
     vim.keymap.set("n", "<leader>tt", function() todo.toggle_window() end, { desc = 'Open global TODOs window' })

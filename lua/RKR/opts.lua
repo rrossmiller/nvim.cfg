@@ -71,7 +71,7 @@ vim.opt.list = false
 vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true 
+vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 3
@@ -81,3 +81,18 @@ vim.o.cmdheight = 0
 
 -- Enable break indent
 vim.o.breakindent = true
+
+-- help window in a right split
+-- Create an autocmd group to manage the autocmd
+vim.api.nvim_create_augroup('HelpWindowGroup', { clear = true })
+
+-- Autocmd to trigger the function when a new buffer is opened
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    group = 'HelpWindowGroup',
+    pattern = '*',
+    callback = function()
+        if vim.bo.buftype == 'help' then
+            vim.cmd('wincmd L')
+        end
+    end
+})
