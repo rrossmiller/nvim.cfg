@@ -8,7 +8,7 @@
         "description": "main func",
         "prefix": "mains",
         "body": [
-            "const std = @import(\"std\");",
+            "const std = @import(\"std\");\n",
             "pub fn main() !void {",
             "std.debug.print(\"Hello, {s}!\\n\", .{\"World\"});",
             "}"
@@ -18,9 +18,7 @@
         "description": "Get the stdout writer",
         "prefix": "gso",
         "body": [
-            "const stdout_file = std.io.getStdOut().writer();",
-            "var bw = std.io.bufferedWriter(stdout_file);",
-            "const stdout = bw.writer();"
+            "const stdoutFile = std.io.getStdOut().writer();"
         ]
     },
     "print": {
@@ -28,6 +26,32 @@
         "prefix": "print",
         "body": [
             "std.debug.print(\"$1\\n\", .{$2});"
+        ]
+    },
+    "Print Stdout": {
+        "description": "Print to std out wrtiter",
+        "prefix": "stp",
+        "body": [
+            "try stdout.print(\"$1\\n\", .{$2});"
+        ]
+    },
+    "GPA": {
+        "description": "Init a GPA",
+        "prefix": "newGPA",
+        "body": [
+            "var gpa = std.heap.GeneralPurposeAllocator(.{}){};",
+            "const allocator = gpa.allocator();"
+        ]
+    },
+    "Arena alloc": {
+        "description": "Init an Arena ",
+        "prefix": "newArena",
+        "body": [
+            "var gpa = std.heap.GeneralPurposeAllocator(.{}){};",
+            "defer _ = gpa.deinit();",
+            "var arena = std.heap.ArenaAllocator.init(gpa.allocator());",
+            "defer arena.deinit();",
+            "const allocator = arena.allocator();"
         ]
     }
 }

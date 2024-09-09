@@ -50,6 +50,12 @@
                     "cpp"
                 ],
                 "path": "./cpp.jsonc"
+            },
+            {
+                "language": [
+                    "c"
+                ],
+                "path": "./c.jsonc"
             }
         ]
     }
