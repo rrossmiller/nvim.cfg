@@ -3,7 +3,10 @@ return { -- Autocompletion
   event = "InsertEnter",
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
-    "L3MON4D3/LuaSnip",
+    {
+      "L3MON4D3/LuaSnip",
+      build = "make install_jsregexp",
+    },
     "saadparwaiz1/cmp_luasnip",
 
     -- Adds other completion capabilities.
@@ -18,9 +21,12 @@ return { -- Autocompletion
     -- See `:help cmp`
     local cmp = require "cmp"
     local luasnip = require "luasnip"
-    require("luasnip.loaders.from_vscode").lazy_load { paths = "~/.config/nvim/snippets" }
-    require("luasnip.loaders.from_vscode").lazy_load()
-    luasnip.config.setup {}
+    require("luasnip.loaders.from_vscode").lazy_load {
+      paths = "~/.config/nvim/snippets",
+    }
+    luasnip.config.setup {
+      update_events = { "TextChanged", "TextChangedI" },
+    }
 
     cmp.setup {
       snippet = {
