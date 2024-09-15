@@ -1,22 +1,22 @@
--- Function to close buffers whose filetype is a directory
-local function close_directory_buffers()
-  -- Get a list of all buffers
-  local buffers = vim.api.nvim_list_bufs()
-  for _, buf in ipairs(buffers) do
-    -- Check if the buffer is valid and loaded
-    if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_is_loaded(buf) then
-      local filetype = vim.b[buf].filetype
+local function close_some_bufs()
+  local b = vim.api.nvim_list_bufs()
+  for _, val in ipairs(b) do
+    -- if the buffer is valid
+    if vim.api.nvim_buf_is_valid(val) then
+      -- and if the buffer does not end in a file extension
+      local buf_path = vim.api.nvim_buf_get_name(val)
+      local has_ext = string.find(buf_path, "%.[%w_]+$")
 
-      -- If the filetype is "directory", delete the buffer
-      if filetype == "directory" then
-        vim.api.nvim_buf_delete(buf, { force = true })
+      -- and the buffer is not a terminal
+      local is_term = string.find(buf_path, "term:", 1, true) -- starts with term:
+      if not has_ext and not is_term then
+        -- close the buffer
+        vim.api.nvim_buf_delete(val, {})
       end
     end
   end
 end
 
--- Call the function
-close_directory_buffers()
 return {
   "folke/persistence.nvim",
   event = "BufReadPre", -- this will only start session saving when an actual file was opened
@@ -35,8 +35,7 @@ return {
       function()
         vim.cmd "Neotree close"
         vim.cmd "lua require('persistence').load()"
-        -- TODO: close buffers whose type is directory
-        -- close_directory_buffers()
+        close_some_bufs()
         vim.cmd "Neotree show"
       end,
     },
@@ -47,6 +46,7 @@ return {
       function()
         vim.cmd "Neotree close"
         vim.cmd "lua require('persistence').load({ last = true })"
+        close_some_bufs()
         vim.cmd "Neotree show"
       end,
     },

@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 -- relative number toggle
 --
 vim.api.nvim_create_autocmd("BufEnter", {
+  group = augroup,
   callback = function()
     vim.opt.formatoptions:remove { "c", "r", "o" }
   end,

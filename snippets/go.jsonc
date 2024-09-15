@@ -40,11 +40,11 @@
         ],
         "description": "check err return"
     },
-    "Stringer": {
-        "prefix": "Stringer",
-        "body": ["func ($1) String() string{$2}"],
-        "description": "stringer"
-    }
+    // "Stringer": {
+    //     "prefix": "Stringer",
+    //     "body": ["func ($1) String() string{$2}"],
+    //     "description": "stringer"
+    // },
     "handler": {
         "prefix": "handler",
         "body": [
