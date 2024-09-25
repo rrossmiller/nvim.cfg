@@ -77,7 +77,8 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 3
 
 -- cmd line height (bottom bar)
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 
 -- Enable break indent
 vim.o.breakindent = true

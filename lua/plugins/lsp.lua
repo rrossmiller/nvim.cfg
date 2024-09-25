@@ -169,6 +169,7 @@ return {
         --         settings = servers[server_name],
         --         filetypes = (servers[server_name] or {}).filetypes,
         --     }
+        zls = {},
       }
       vim.g.zig_fmt_parse_errors = 0
       vim.g.zig_fmt_autosave = 0

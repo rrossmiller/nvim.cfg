@@ -10,7 +10,8 @@
 --
 local home = os.getenv "HOME"
 local jdtls = require "jdtls"
-local jdtls_version = "1.38.0"
+
+local jdtls_version = vim.fs.dir "/opt/homebrew/Cellar/jdtls"()
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
