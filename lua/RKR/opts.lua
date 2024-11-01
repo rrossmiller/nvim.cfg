@@ -53,13 +53,6 @@ vim.opt.splitright = false
 vim.opt.splitbelow = true
 
 vim.o.colorcolumn = "" -- shows bar where new line "should" be
-vim.keymap.set('n', '<leader>CC', function()
-    if vim.o.colorcolumn == "" then
-        vim.o.colorcolumn = "80"
-    else
-        vim.o.colorcolumn = ""
-    end
-end, { desc = 'toggle colorcolumn' })
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -77,23 +70,23 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 3
 
 -- cmd line height (bottom bar)
--- vim.o.cmdheight = 0
-vim.o.cmdheight = 1
+-- vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 
 -- Enable break indent
 vim.o.breakindent = true
 
 -- help window in a right split
 -- Create an autocmd group to manage the autocmd
-vim.api.nvim_create_augroup('HelpWindowGroup', { clear = true })
+vim.api.nvim_create_augroup("HelpWindowGroup", { clear = true })
 
 -- Autocmd to trigger the function when a new buffer is opened
-vim.api.nvim_create_autocmd('BufWinEnter', {
-    group = 'HelpWindowGroup',
-    pattern = '*',
-    callback = function()
-        if vim.bo.buftype == 'help' then
-            vim.cmd('wincmd L')
-        end
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = "HelpWindowGroup",
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "help" then
+      vim.cmd "wincmd L"
     end
+  end,
 })

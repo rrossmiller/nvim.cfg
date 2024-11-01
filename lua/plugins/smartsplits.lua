@@ -7,6 +7,7 @@ return {
                 'nofile',
                 'quickfix',
                 'prompt',
+                'neo-tree',
             },
             -- Ignored buffer types (only while resizing)
             ignored_buftypes = { 'NvimTree' },

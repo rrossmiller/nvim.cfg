@@ -13,15 +13,15 @@ return {
         ---Line-comment toggle keymap
         line = "÷",
         ---Block-comment toggle keymap
-        block = "gbc",
+        block = "¿",
       },
       ---LHS of operator-pending mappings in NORMAL and VISUAL mode
       opleader = {
         ---Line-comment keymap
         -- line = 'gc',
-        line = "÷",
+        line = "÷", -- opt-/
         ---Block-comment keymap
-        block = "gbc",
+        block = "¿", -- opt-shift-/
       },
       ---LHS of extra mappings
       extra = {

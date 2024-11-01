@@ -12,7 +12,7 @@ return { -- Autoformat
       desc = "[F]ormat buffer",
     },
     {
-      "Ï",
+      "Ï", -- opt-shift-f
       function()
         require("conform").format { async = true, lsp_fallback = true }
       end,

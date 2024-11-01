@@ -25,7 +25,7 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diagnostics" },
         lualine_c = { { "filename", path = 1 } },
-        --lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        -- lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_x = { "fileformat", "filetype" },
         lualine_y = { "location" },
         lualine_z = { "" },

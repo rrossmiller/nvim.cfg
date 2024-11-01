@@ -1,5 +1,5 @@
 return {
-  { "rrossmiller/gsql-vim", 
+  { "rrossmiller/gsql-vim",
     -- dir = "/Users/robrossmiller/Documents/Projects/gsql-vim" ,
   },
   { "dylon/vim-antlr" },

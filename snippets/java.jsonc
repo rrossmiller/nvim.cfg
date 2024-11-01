@@ -6,14 +6,28 @@
     // Example:
     "mains": {
         "prefix": "mains",
-        "body": ["public static void main(String[] args){\n\t\n}"],
+        "body": [
+            "public static void main(String[] args){\n\t\n}"
+        ],
         "description": "mains boilerplate"
     },
     "Println": {
         "prefix": "print",
-        "body": ["System.out.println($1);"],
+        "body": [
+            "System.out.println($1);"
+        ],
         "description": "Println"
     },
+    "New Class": {
+        "prefix": "newclass",
+        "body": [
+            "import lombok.Getter;",
+            " import lombok.Setter;",
+            "@Getter\n@Setter",
+            "public class $TM_FILENAME_BASE {",
+            "}"
+        ]
+    }
     // "Printf to console": {
     //     "prefix": "fpf",
     //     "body": ["fmt.Printf(\"$1\\n\",$2)"],
@@ -30,4 +44,3 @@
     //     "description": "stringer"
     // }
 }
-

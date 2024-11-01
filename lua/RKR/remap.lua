@@ -80,6 +80,14 @@ vim.keymap.set("n", "º", function()
   vim.cmd "BufferLineMoveNext"
 end)
 
+-- toggle color colorcolumn
+vim.keymap.set("n", "<leader>CC", function()
+  if vim.o.colorcolumn == "" then
+    vim.o.colorcolumn = "80"
+  else
+    vim.o.colorcolumn = ""
+  end
+end, { desc = "toggle colorcolumn" })
 -- toggle auto save
 vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
 
@@ -115,4 +123,3 @@ vim.keymap.set("n", "<leader>fx", "<cmd>silent !chmod +x %<CR>", { silent = true
 
 -- toggle zen mode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })
-
