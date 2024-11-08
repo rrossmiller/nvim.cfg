@@ -89,7 +89,7 @@ vim.keymap.set("n", "<leader>CC", function()
   end
 end, { desc = "toggle colorcolumn" })
 -- toggle auto save
-vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>as", ":silent ASToggle<CR>", {})
 
 -- restart lsp
 vim.keymap.set("n", "<leader>lr", function()
