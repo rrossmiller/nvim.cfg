@@ -152,6 +152,7 @@ return {
         html = { filetypes = { "html" } },
         jsonls = {},
         clangd = {},
+        bashls = {},
         -- arduino_language_server = {},
         -- put the following in mason_lspconfig.setup_handlers
         -- if server_name == "arduino_language_server" then
