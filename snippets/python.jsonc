@@ -7,8 +7,14 @@
     "mains": {
         "prefix": "mains",
         "description": "main method",
-        "body": ["if __name__ == \"__main__\":\n\tprint('hello world')"],
+        "body": ["if __name__ == \"__main__\":\n\tprint('hello world')"]
     },
+    "New Async TaskGroup":{
+        "prefix": "atg",
+        "description": "New Async TasGroup",
+        "body": ["async with asyncio.TaskGroup() as tg:","\t$1"]
+
+    }
     //"Print to console": {
     //    "prefix": "fp",
     //    "body": ["fmt.Println($1)"],
