@@ -95,7 +95,7 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":silent ASToggle<CR>", {})
 vim.keymap.set("n", "<leader>lr", function()
   vim.cmd "LspRestart"
   print "done reloading"
-end)
+end,{desc="Restart LSP"})
 
 -- file tree stuff
 vim.keymap.set("n", "<leader>pT", function()

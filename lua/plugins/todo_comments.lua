@@ -14,7 +14,7 @@ return {
         alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
         -- signs = false, -- configure signs for some keywords individually
       },
-      DELETE = { icon = "d ", color = "error", alt = { "DELETEME", "deleteme", "delete" } },
+      DELETE = { icon = "✖︎ ", color = "error", alt = { "DELETEME", "deleteme" } },
       TODO = { icon = " ", color = "info" },
       HACK = { icon = " ", color = "warning" },
       WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
