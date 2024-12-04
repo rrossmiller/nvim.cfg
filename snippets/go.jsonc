@@ -67,6 +67,15 @@
             "return sb.String()\n}"
         ]
     },
+    "Check File Exists": {
+        "prefix": "fex",
+        "body": [
+            "if _, err := os.Stat($1); !errors.Is(err, os.ErrNotExist) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Check if a file exists"
+    },
     // from https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/go.json
     "single import": {
         "prefix": "im",

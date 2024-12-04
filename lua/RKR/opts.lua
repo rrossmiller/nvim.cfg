@@ -1,4 +1,8 @@
 -- [[ Setting options ]]
+
+local home = os.getenv "HOME"
+vim.g.python3_host_prog = home .. "/.venvs/nvim/bin/python"
+-- vim.g.python3_host_prog
 -- `:help vim.opt`
 -- `:help option-list`
 
