@@ -18,7 +18,7 @@ return {
         local fn = vim.fn
         local utils = require "auto-save.utils.data"
 
-        if vim.bo[buf].filetype == "harpoon" then
+        if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].filetype == "harpoon" then
           return false
         elseif fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
           return true -- met condition(s), can save

@@ -36,7 +36,9 @@
     "Check Error Return": {
         "prefix": "cherrr",
         "body": [
-            "if err != nil {\nreturn err\n}"
+            "if err != nil {",
+            "\treturn $1, err",
+            "}"
         ],
         "description": "check err return"
     },
