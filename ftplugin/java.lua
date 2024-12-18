@@ -11,6 +11,9 @@
 local home = os.getenv "HOME"
 local jdtls = require "jdtls"
 
+local java_version = "21.0.5-tem"
+
+-- local java_version = "17.0.13-tem"
 local jdtls_version = vim.fs.dir "/opt/homebrew/Cellar/jdtls"()
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -171,8 +174,11 @@ local config = {
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   -- for the full list of options
   cmd = {
-    -- home .. "java",
-    home .. "/.sdkman/candidates/java/17.0.11-tem/bin/java",
+    -- home .. "/.sdkman/candidates/java/17.0.13-tem/bin/java",
+    home
+      .. "/.sdkman/candidates/java/"
+      .. java_version
+      .. "/bin/java",
     -- home .. "/.sdkman/candidates/java/current/bin/java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
