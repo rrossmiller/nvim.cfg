@@ -95,7 +95,7 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":silent ASToggle<CR>", {})
 vim.keymap.set("n", "<leader>lr", function()
   vim.cmd "LspRestart"
   print "done reloading"
-end,{desc="Restart LSP"})
+end, { desc = "Restart LSP" })
 
 -- file tree stuff
 vim.keymap.set("n", "<leader>pT", function()
@@ -119,7 +119,8 @@ vim.keymap.set("n", "<leader>QQ", function()
 end, { desc = "Exit Neovim" })
 
 -- make a file executable
-vim.keymap.set("n", "<leader>fx", "<cmd>silent !chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true, desc = "make current file executable" })
+-- vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true })
 
 -- toggle zen mode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })

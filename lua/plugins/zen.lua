@@ -2,7 +2,6 @@ local user = os.getenv "USER"
 local width = 175
 if user == "robrossmiller" then
   width = 150
-  print(user, width)
 end
 
 return {
