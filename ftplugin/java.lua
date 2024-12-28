@@ -15,9 +15,9 @@ local java_version = "21.0.5-tem"
 
 -- local java_version = "17.0.13-tem"
 local jdtls_version = vim.fs.dir "/opt/homebrew/Cellar/jdtls"()
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
+vim.opt_local.tabstop = 2
+vim.opt_local.shiftwidth = 2
+vim.opt_local.expandtab = true
 
 -- File types that signify a Java project's root directory. This will be
 -- used by eclipse to determine what constitutes a workspace

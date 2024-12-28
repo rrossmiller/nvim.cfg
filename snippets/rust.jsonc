@@ -52,5 +52,12 @@
             "\t}\n}"
         ],
         "description": "testing boilerplate"
+    },
+    "Lambda": {
+        "prefix": "lambda",
+        "body": [
+            "|$1|{$2}"
+        ],
+        "description": "I don't think it's called a lambda"
     }
 }
