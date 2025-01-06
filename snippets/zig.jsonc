@@ -28,6 +28,18 @@
             "std.debug.print(\"$1\\n\", .{$2});"
         ]
     },
+    "import": {
+        "prefix": "imp",
+        "body": [
+            "const $1 = @import(\"$2\");"
+        ]
+    },
+    "import std": {
+        "prefix": "istd",
+        "body": [
+            "const std = @import(\"std\");"
+        ]
+    },
     "Print Stdout": {
         "description": "Print to std out wrtiter",
         "prefix": "stp",

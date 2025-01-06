@@ -68,12 +68,16 @@ vim.keymap.set("n", "∑", "<C-w>")
 vim.keymap.set("n", "∑h", "<C-w>s")
 vim.keymap.set("n", "∑v", "<C-w>v")
 
--- move around split windows
+-- move around split windows (macos-option-as-alt = false)
 vim.keymap.set("n", "˙", "<C-w>h")
 vim.keymap.set("n", "∆", "<C-w>j")
 vim.keymap.set("n", "˚", "<C-w>k")
 vim.keymap.set("n", "¬", "<C-w>l")
 
+--vim.keymap.set("n", "<alt-h>", "<C-w>h")
+--vim.keymap.set("n", "<alt-j>", "<C-w>j")
+--vim.keymap.set("n", "<alt-k>", "<C-w>k")
+--vim.keymap.set("n", "<alt-l>", "<C-w>l")
 -- move around tabs
 vim.keymap.set("n", "ª", function()
   vim.cmd "BufferLineMovePrev"
