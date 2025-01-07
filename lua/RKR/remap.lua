@@ -118,7 +118,7 @@ vim.keymap.set("n", "<leader>po", function()
   vim.cmd "Oil --float"
 end, { desc = "open Oil in a float" })
 
-vim.keymap.set("n", "<leader>QQ", function()
+vim.keymap.set("n", "<leader>Q", function()
   vim.cmd "Neotree close"
   vim.cmd "wa"
   vim.cmd "qa"
