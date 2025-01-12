@@ -12,10 +12,15 @@ return {
       cursorline = true,
     },
     plugins = {
-      kitty = {
-        enabled = true,
+      -- kitty = {
+      --   enabled = true,
+      -- },
+      options = {
+        -- showcmd = true, -- the command in the last line of the screen
+        laststatus = 3,
       },
-      -- todo = { enabled = true },
+      gitsigns = { enabled = true }, -- disables git signs
+      todo = { enabled = true },
     },
   },
 }
