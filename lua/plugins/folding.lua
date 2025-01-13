@@ -28,8 +28,8 @@ return {
       }
     end
     ufo.setup()
-    vim.keymap.set("n", "fO", ufo.openAllFolds)
-    vim.keymap.set("n", "fC", ufo.closeAllFolds)
+    vim.keymap.set("n", "zO", ufo.openAllFolds)
+    vim.keymap.set("n", "zC", ufo.closeAllFolds)
 
     -- Option 3: treesitter as a main provider instead
     -- (Note: the `nvim-treesitter` plugin is *not* needed.)

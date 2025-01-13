@@ -1,6 +1,6 @@
 require "RKR.remap"
 require "RKR.opts"
-require "RKR.lsp"
+require "RKR.ghostty"
 
 --  trying custom version of sitiom/nvim-numbertoggle
 local augroup = vim.api.nvim_create_augroup("numbertoggle", {})
