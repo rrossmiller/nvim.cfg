@@ -3,7 +3,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>bb", "!sh just", { desc = "Run just" })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -58,9 +57,8 @@ vim.keymap.set("n", "Ï", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- search and replace all instances
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -131,3 +129,54 @@ vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true
 
 -- toggle zen mode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })
+
+-- run the default just recip
+vim.keymap.set("n", "<leader>jj", function()
+  vim.fn.jobstart("just", {
+    on_exit = function()
+      require("snacks").notifier.notify("just finished", "info", {
+        timeout = 1500
+      })
+    end
+  })
+end, { desc = "Run just" })
+
+
+vim.keymap.set("n", "<leader>jb", function()
+  -- get the options from just
+  local output = vim.fn.system("just -l")
+  local choices = vim.fn.split(output, "\n")
+  for i, line in ipairs(choices) do
+    choices[i] = vim.fn.trim(line)
+  end
+  table.remove(choices, 1)
+
+  -- don't show display if there are no choices
+  if #choices == 0 then
+    vim.print("error: No justfile found")
+    return
+  end
+
+  -- display and run after selection
+  vim.ui.select(
+    choices,
+    {
+      prompt = 'Select tabs or spaces:',
+    },
+    function(choice)
+      if choice then
+        vim.fn.jobstart("just " .. choice, {
+          on_exit = function()
+            require("snacks").notifier.notify("just " .. choice .. " done", "info", {
+              timeout = 1500
+            })
+          end
+        })
+      end
+    end)
+end, { desc = "Run just" })
+
+vim.keymap.set("n", "<leader>o", function()
+  print("TODO: get current buffer path")
+  -- vim.ui.open("%")
+end, { desc = "open file" })
