@@ -144,12 +144,11 @@ end, { desc = "Run just" })
 
 vim.keymap.set("n", "<leader>jb", function()
   -- get the options from just
-  local output = vim.fn.system("just -l")
-  local choices = vim.fn.split(output, "\n")
+  local output = vim.fn.system("just --summary")
+  local choices = vim.fn.split(output)
   for i, line in ipairs(choices) do
     choices[i] = vim.fn.trim(line)
   end
-  table.remove(choices, 1)
 
   -- don't show display if there are no choices
   if #choices == 0 then
