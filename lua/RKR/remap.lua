@@ -130,52 +130,64 @@ vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true
 -- toggle zen mode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })
 
--- run the default just recip
+-- run the default just recipe
 vim.keymap.set("n", "<leader>jj", function()
   vim.fn.jobstart("just", {
     on_exit = function()
       require("snacks").notifier.notify("just finished", "info", {
-        timeout = 1500
+        timeout = 1500,
       })
-    end
+    end,
   })
 end, { desc = "Run just" })
 
-
 vim.keymap.set("n", "<leader>jb", function()
+  -- print(vim.fn.getcwd())
+
   -- get the options from just
-  local output = vim.fn.system("just --summary")
+  local output = vim.fn.system "just --summary"
+
+  -- don't show display if there are no choices
+  if output == "error: No justfile found" then
+    print "error: No justfile found"
+    return
+  end
+
   local choices = vim.fn.split(output)
   for i, line in ipairs(choices) do
     choices[i] = vim.fn.trim(line)
   end
 
-  -- don't show display if there are no choices
-  if #choices == 0 then
-    vim.print("error: No justfile found")
-    return
-  end
-
   -- display and run after selection
-  vim.ui.select(
-    choices,
-    {
-      prompt = 'Select tabs or spaces:',
-    },
-    function(choice)
-      if choice then
-        vim.fn.jobstart("just " .. choice, {
-          on_exit = function()
-            require("snacks").notifier.notify("just " .. choice .. " done", "info", {
-              timeout = 1500
-            })
-          end
-        })
-      end
-    end)
-end, { desc = "Run just" })
+  local out = ""
+  vim.ui.select(choices, {
+    prompt = "Select just recipe",
+  }, function(choice)
+    if choice then
+      vim.fn.jobstart("just " .. choice, {
+        on_exit = function()
+          require("snacks").notifier.notify("just " .. choice .. " done", "info", {
+            timeout = 1500,
+          })
+        end,
+        stdout_buffered = true,
+        stderr_buffered = true,
+        on_stdout = function(_, dat)
+          -- table.insert(dat, "stdout")
+          -- vim.fn.writefile(dat, "std.out")
+          print(dat)
+        end,
+        on_stderr = function(_, dat)
+          -- table.insert(dat, "stderr")
+          -- vim.fn.writefile(dat, "std.out")
+          print(dat)
+        end,
+      })
+    end
+  end)
+end, { desc = "Select just recipe" })
 
 vim.keymap.set("n", "<leader>o", function()
-  print("TODO: get current buffer path")
+  print "TODO: get current buffer path"
   -- vim.ui.open("%")
 end, { desc = "open file" })

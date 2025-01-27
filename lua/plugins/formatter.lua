@@ -40,7 +40,7 @@ return { -- Autoformat
       sh = { "shfmt" },
       java = { "google-java-format" },
       -- sub-list torun *until* a formatter is found.
-      javascript = { { "prettierd", "prettier" } },
+      javascript = { "prettier" },
     },
     -- Customize formatters
     formatters = {

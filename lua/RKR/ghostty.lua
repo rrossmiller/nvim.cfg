@@ -1,18 +1,22 @@
+local home = os.getenv "HOME"
 local user = os.getenv "USER"
+local bin_path = vim.fn.stdpath "state"
+-- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 if user == "robrossmiller" then
-  local home = os.getenv "HOME"
-  local client = vim.lsp.start_client {
-    name = "ghostty-lsp",
-    cmd = { home .. "/Projects/ghostty-lsp/zig-out/bin/ghostty-lsp" },
-  }
+  -- add filetype info
   vim.filetype.add {
     pattern = {
       [home .. "/.config/ghostty/.*"] = "ghosttyconf",
     },
   }
-  -- format lsp logs
-  vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
+
+  -- attach lsp
+  local client = vim.lsp.start_client {
+    name = "ghostty-lsp",
+    cmd = { bin_path .. "/ghostty-lsp/lsp" },
+  }
+
   if not client then
     vim.notify "The ghostty lsp client is not set up correctly"
   else
@@ -23,4 +27,7 @@ if user == "robrossmiller" then
       end,
     })
   end
+
+  -- format lsp logs
+  vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
 end

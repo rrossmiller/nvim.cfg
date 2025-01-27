@@ -1,7 +1,8 @@
 return {
   "kevinhwang91/nvim-ufo",
-  dependencies = "kevinhwang91/promise-async",
+  dependencies = { "kevinhwang91/promise-async", "neovim/nvim-lspconfig" },
   config = function()
+    local lsp = require "lspconfig"
     -- zc to fold
     -- zo to open fold
     vim.o.foldcolumn = "0" -- '0' is not bad
@@ -20,9 +21,9 @@ return {
       dynamicRegistration = false,
       lineFoldingOnly = true,
     }
-    local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+    local language_servers = lsp.util._available_servers() -- or list servers manually like {'gopls', 'clangd'}
     for _, ls in ipairs(language_servers) do
-      require("lspconfig")[ls].setup {
+      lsp[ls].setup {
         capabilities = capabilities,
         -- you can add other fields for setting up lsp server in this table
       }
