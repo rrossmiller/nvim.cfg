@@ -42,11 +42,20 @@
         ],
         "description": "check err return"
     },
-    // "Stringer": {
-    //     "prefix": "Stringer",
-    //     "body": ["func ($1) String() string{$2}"],
-    //     "description": "stringer"
-    // },
+    "Check Error - log & exit": {
+        "prefix": "cherrl",
+        "body": [
+            "if err != nil {",
+            "\tlog.Errorf(\"$1: %s\", err)",
+            "\treturn err",
+            "}"
+        ]
+    },
+    "json tag": {
+        "prefix": "js",
+        "body": "$1 ${2:string} `json:\"${1/(.*)/${1:/camelcase}/}\"`",
+        "description": "Snippet for struct json tag"
+    },
     "handler": {
         "prefix": "handler",
         "body": [
@@ -354,11 +363,6 @@
         "prefix": "sort",
         "body": "type ${1:SortBy} []${2:Type}\n\nfunc (a $1) Len() int           { return len(a) }\nfunc (a $1) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }\nfunc (a $1) Less(i, j int) bool { ${3:return a[i] < a[j]} }",
         "description": "Snippet for a custom sort.Sort interface implementation, for a given slice type."
-    },
-    "json tag": {
-        "prefix": "js",
-        "body": "$1 ${2:string} `json:\"${1/(.*)/${1:/camelcase}/}\"`",
-        "description": "Snippet for struct json tag"
     },
     "xml tag": {
         "prefix": "xml",
