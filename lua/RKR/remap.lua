@@ -103,17 +103,19 @@ vim.keymap.set("n", "<leader>lr", function()
 end, { desc = "Restart LSP" })
 
 -- file tree stuff
-vim.keymap.set("n", "<leader>pT", function()
-  vim.cmd "Neotree toggle"
-  -- make splits equal in size
-  -- without this, Neotree takes space from the left split
-  vim.cmd "horizontal wincmd ="
-  -- vim.cmd
-end, { desc = "toggle Neotree" })
+-- vim.keymap.set("n", "<leader>pT", function()
+--   vim.cmd "Neotree toggle"
+--   -- make splits equal in size
+--   -- without this, Neotree takes space from the left split
+--   vim.cmd "horizontal wincmd ="
+--   -- vim.cmd
+-- end, { desc = "toggle Neotree" })
 
 vim.keymap.set("n", "<leader>pt", function()
   -- vim.cmd("NvimTreeFocus")
-  vim.cmd "Neotree focus"
+  -- vim.cmd "Neotree focus"
+  vim.cmd "Neotree toggle"
+  vim.cmd "horizontal wincmd ="
 end, { desc = "open Neotree" })
 
 vim.keymap.set("n", "<leader>po", function()
@@ -135,24 +137,20 @@ vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "To
 -- set padding on the left
 -- mimics zen mode without losing splits or tabs
 local toggle = false
-vim.keymap.set("n",
-  "<leader>;",
-  function()
-    -- toggle fold col
-    if not toggle then
-      vim.cmd "set foldcolumn=9"
-      vim.cmd "set signcolumn=yes:5"
-      toggle = true
-    else
-      vim.cmd "set foldcolumn=0"
-      vim.cmd "set signcolumn=yes"
-      toggle = false
-    end
-  end,
-  {
-    desc = 'test'
-  }
-)
+vim.keymap.set("n", "<leader>;", function()
+  -- toggle fold col
+  if not toggle then
+    vim.cmd "set foldcolumn=9"
+    vim.cmd "set signcolumn=yes:5"
+    toggle = true
+  else
+    vim.cmd "set foldcolumn=0"
+    vim.cmd "set signcolumn=yes"
+    toggle = false
+  end
+end, {
+  desc = "test",
+})
 -- run the default just recipe
 vim.keymap.set("n", "<leader>jj", function()
   vim.fn.jobstart("just", {
