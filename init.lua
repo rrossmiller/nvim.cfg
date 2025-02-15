@@ -25,6 +25,7 @@ require("lazy").setup("plugins", {
 })
 
 require "RKR.ghostty"
+-- require "RKR.arduino"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
