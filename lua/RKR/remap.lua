@@ -111,13 +111,6 @@ end, { desc = "Restart LSP" })
 --   -- vim.cmd
 -- end, { desc = "toggle Neotree" })
 
-vim.keymap.set("n", "<leader>pt", function()
-  -- vim.cmd("NvimTreeFocus")
-  -- vim.cmd "Neotree focus"
-  vim.cmd "Neotree toggle"
-  vim.cmd "horizontal wincmd ="
-end, { desc = "open Neotree" })
-
 vim.keymap.set("n", "<leader>po", function()
   vim.cmd "Oil --float"
 end, { desc = "open Oil in a float" })
@@ -136,21 +129,33 @@ vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "To
 
 -- set padding on the left
 -- mimics zen mode without losing splits or tabs
-local toggle = false
-vim.keymap.set("n", "<leader>;", function()
+local side_padding = false
+local function toggle_side_padding()
   -- toggle fold col
-  if not toggle then
+  if not side_padding then
     vim.cmd "set foldcolumn=9"
     vim.cmd "set signcolumn=yes:5"
-    toggle = true
+    side_padding = true
   else
     vim.cmd "set foldcolumn=0"
     vim.cmd "set signcolumn=yes"
-    toggle = false
+    side_padding = false
   end
-end, {
+end
+vim.keymap.set("n", "<leader>;", toggle_side_padding, {
   desc = "test",
 })
+
+vim.keymap.set("n", "<leader>pt", function()
+  -- vim.cmd("NvimTreeFocus")
+  -- vim.cmd "Neotree focus"
+  if side_padding then
+    toggle_side_padding()
+  end
+  vim.cmd "Neotree toggle"
+  vim.cmd "horizontal wincmd ="
+end, { desc = "open Neotree" })
+
 -- run the default just recipe
 vim.keymap.set("n", "<leader>jj", function()
   vim.fn.jobstart("just", {
