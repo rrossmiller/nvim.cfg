@@ -11,26 +11,26 @@ vim.filetype.add {
   },
 }
 
-  -- attach lsp
+-- attach lsp
 
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "ghosttyconf" },
-    callback = function()
-      local client = vim.lsp.start_client {
-        name = "ghostty-lsp",
-        cmd = { bin_path .. "/ghostty-lsp/lsp" },
-      }
-      if not client then
-        vim.notify "The ghostty lsp client is not set up correctly"
-      else
-        vim.lsp.buf_attach_client(0, client)
-      end
-    end,
-  })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "ghosttyconf" },
+  callback = function()
+    local client = vim.lsp.start_client {
+      name = "ghostty-lsp",
+      cmd = { bin_path .. "/ghostty-lsp/lsp" },
+    }
+    if not client then
+      vim.notify "The ghostty lsp client is not set up correctly"
+    else
+      vim.lsp.buf_attach_client(0, client)
+    end
+  end,
+})
 
-  -- format lsp logs
-  vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
-end
+-- format lsp logs
+vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
+-- end
 
 -- format lsp logs
 vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
