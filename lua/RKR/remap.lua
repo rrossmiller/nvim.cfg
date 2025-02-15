@@ -104,8 +104,11 @@ end, { desc = "Restart LSP" })
 
 -- file tree stuff
 vim.keymap.set("n", "<leader>pT", function()
-  -- vim.cmd("NvimTreeToggle")
   vim.cmd "Neotree toggle"
+  -- make splits equal in size
+  -- without this, Neotree takes space from the left split
+  vim.cmd "horizontal wincmd ="
+  -- vim.cmd
 end, { desc = "toggle Neotree" })
 
 vim.keymap.set("n", "<leader>pt", function()
@@ -126,10 +129,30 @@ end, { desc = "Exit Neovim" })
 -- make a file executable
 vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true, desc = "make current file executable" })
 -- vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true })
-
 -- toggle zen mode
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })
 
+-- set padding on the left
+-- mimics zen mode without losing splits or tabs
+local toggle = false
+vim.keymap.set("n",
+  "<leader>;",
+  function()
+    -- toggle fold col
+    if not toggle then
+      vim.cmd "set foldcolumn=9"
+      vim.cmd "set signcolumn=yes:5"
+      toggle = true
+    else
+      vim.cmd "set foldcolumn=0"
+      vim.cmd "set signcolumn=yes"
+      toggle = false
+    end
+  end,
+  {
+    desc = 'test'
+  }
+)
 -- run the default just recipe
 vim.keymap.set("n", "<leader>jj", function()
   vim.fn.jobstart("just", {
