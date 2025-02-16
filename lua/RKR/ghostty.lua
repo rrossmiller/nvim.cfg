@@ -33,5 +33,5 @@ vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
 -- end
 
 -- format lsp logs
-vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
+vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR><cmd>nohlsearch<CR>]])
 -- end

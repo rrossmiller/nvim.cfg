@@ -40,6 +40,12 @@
             "const std = @import(\"std\");"
         ]
     },
+    "allocator param": {
+        "prefix": "palloc",
+        "body": [
+            "allocator: std.mem.Allocator"
+        ]
+    },
     "Print Stdout": {
         "description": "Print to std out wrtiter",
         "prefix": "stp",

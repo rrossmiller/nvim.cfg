@@ -133,17 +133,17 @@ local side_padding = false
 local function toggle_side_padding()
   -- toggle fold col
   if not side_padding then
-    vim.cmd "set foldcolumn=9"
-    vim.cmd "set signcolumn=yes:5"
+    vim.o.foldcolumn = "9"
+    vim.o.signcolumn = "yes:5"
     side_padding = true
   else
-    vim.cmd "set foldcolumn=0"
-    vim.cmd "set signcolumn=yes"
+    vim.o.foldcolumn = "0"
+    vim.o.signcolumn = "yes"
     side_padding = false
   end
 end
 vim.keymap.set("n", "<leader>;", toggle_side_padding, {
-  desc = "test",
+  desc = "toggle side padding",
 })
 
 vim.keymap.set("n", "<leader>pt", function()
