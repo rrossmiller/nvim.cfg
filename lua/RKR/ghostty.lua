@@ -28,9 +28,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- format lsp logs
-vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR>]])
--- end
 
 -- format lsp logs
 vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR><cmd>nohlsearch<CR>]])
