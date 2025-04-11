@@ -121,6 +121,8 @@ vim.keymap.set("n", "<leader>Q", function()
   vim.cmd "qa"
 end, { desc = "Exit Neovim" })
 
+vim.keymap.set("n", "<leader>qqq", "<cmd>q!<CR>", { desc = "Force Exit Neovim" })
+
 -- make a file executable
 vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true, desc = "make current file executable" })
 -- vim.keymap.set("n", "<leader>xf", "<cmd>silent !chmod +x %<CR>", { silent = true })
