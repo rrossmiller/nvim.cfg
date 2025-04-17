@@ -102,15 +102,6 @@ vim.keymap.set("n", "<leader>lr", function()
   print "done reloading"
 end, { desc = "Restart LSP" })
 
--- file tree stuff
--- vim.keymap.set("n", "<leader>pT", function()
---   vim.cmd "Neotree toggle"
---   -- make splits equal in size
---   -- without this, Neotree takes space from the left split
---   vim.cmd "horizontal wincmd ="
---   -- vim.cmd
--- end, { desc = "toggle Neotree" })
-
 vim.keymap.set("n", "<leader>po", function()
   vim.cmd "Oil --float"
 end, { desc = "open Oil in a float" })
@@ -148,15 +139,21 @@ vim.keymap.set("n", "<leader>;", toggle_side_padding, {
   desc = "toggle side padding",
 })
 
-vim.keymap.set("n", "<leader>pt", function()
-  -- vim.cmd("NvimTreeFocus")
-  -- vim.cmd "Neotree focus"
+-- file tree stuff
+local function toggle_neotree()
   if side_padding then
     toggle_side_padding()
   end
   vim.cmd "Neotree toggle"
   vim.cmd "horizontal wincmd ="
+end
+vim.keymap.set("n", "<leader>pt", function()
+  toggle_neotree()
 end, { desc = "open Neotree" })
+
+vim.keymap.set("n", "<leader>pT", function()
+  toggle_neotree()
+end, { desc = "toggle Neotree" })
 
 -- run the default just recipe
 vim.keymap.set("n", "<leader>jj", function()
