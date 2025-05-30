@@ -24,8 +24,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
     end
   end,
 })
+
 -- relative number toggle
---
 vim.api.nvim_create_autocmd("BufEnter", {
   group = augroup,
   callback = function()
@@ -33,4 +33,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
   -- group = general,
   desc = "Disable New Line Comment",
+})
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  callback = function()
+    vim.opt.cmdheight = 1
+  end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
 })

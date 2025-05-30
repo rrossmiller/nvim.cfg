@@ -42,6 +42,7 @@ return { -- Autoformat
       java = { "google-java-format" },
       -- sub-list torun *until* a formatter is found.
       javascript = { "prettier" },
+      markdown = { "prettier" },
       xml = { "xmlformatter" },
     },
     -- Customize formatters

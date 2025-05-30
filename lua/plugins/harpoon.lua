@@ -18,6 +18,7 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Open Harpoon" })
 
+    -- get nth file in list
     vim.keymap.set("n", "å", function()
       harpoon:list():select(1)
     end, { desc = "Select Harpoon idx 1" })
@@ -30,6 +31,13 @@ return {
     vim.keymap.set("n", "ƒ", function()
       harpoon:list():select(4)
     end, { desc = "Select Harpoon idx 4" })
+
+    vim.keymap.set("n", "©", function()
+      harpoon:list():select(5)
+    end, { desc = "Select Harpoon idx 5" })
+    vim.keymap.set("n", "Å", function()
+      harpoon:list():select(6)
+    end, { desc = "Select Harpoon idx 6" })
 
     -- Toggle previous & next buffers stored within Harpoon list
     -- opt-n: ˜
