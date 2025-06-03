@@ -15,6 +15,7 @@ return {
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
+      local lspconfig = require "lspconfig"
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
@@ -152,22 +153,6 @@ return {
         jsonls = {},
         clangd = {},
         bashls = {},
-        -- arduino_language_server = {},
-        -- put the following in mason_lspconfig.setup_handlers
-        -- if server_name == "arduino_language_server" then
-        --     lspconfig[server_name].setup {
-        --         capabilities = capabilities,
-        --         on_attach = on_attach,
-        --         cmd = {
-        --             "arduino-language-server",
-        --             "-cli-config", "~/Library/Arduino15/arduino-cli.yaml",
-        --             -- "-fqbn", "arduino:uvr:uno",
-        --             "-cli", "/opt/homebrew/bin/arduino-cli",
-        --             -- "-clangd", "/usr/bin/clangd"
-        --         },
-        --         settings = servers[server_name],
-        --         filetypes = (servers[server_name] or {}).filetypes,
-        --     }
         zls = {},
       }
       vim.g.zig_fmt_parse_errors = 0
@@ -203,42 +188,14 @@ return {
             if server_name == "arduino_language_server" then
               server = {
                 cmd = {
-                  -- "arduino-language-server",
-                  -- "-clangd",
-                  -- "/usr/bin/clangd",
-                  -- "-cli",
-                  -- "/opt/homebrew/bin/arduino-cli",
-                  -- "arduino-language-server -cli-config /Users/robrossmiller/Library/Arduino15/arduino-cli.yaml",
                   "arduino-language-server -cli-config /Users/robrossmiller/Library/Arduino15/",
                 },
               }
             end
-            require("lspconfig")[server_name].setup(server)
+            lspconfig[server_name].setup(server)
           end,
         },
       }
-
-      -- require("lspconfig").svelte.setup {
-      --   filetypes = { "svelte" },
-      --   on_attach = function(client, bufnr)
-      --     if client.name == "svelte" then
-      --       vim.api.nvim_create_autocmd("BufWritePost", {
-      --         pattern = { "*.js", "*.ts", "*.svelte" },
-      --         callback = function(ctx)
-      --           client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-      --         end,
-      --       })
-      --     end
-      --     if vim.bo[bufnr].filetype == "svelte" then
-      --       vim.api.nvim_create_autocmd("BufWritePost", {
-      --         pattern = { "*.js", "*.ts", "*.svelte" },
-      --         callback = function(ctx)
-      --           client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-      --         end,
-      --       })
-      --     end
-      --   end,
-      -- }
     end,
   },
 }
