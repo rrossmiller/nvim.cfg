@@ -43,6 +43,7 @@ return { -- Autoformat
       -- sub-list torun *until* a formatter is found.
       javascript = { "prettier" },
       markdown = { "prettier" },
+      yaml = { "prettier" },
       xml = { "xmlformatter" },
     },
     -- Customize formatters
