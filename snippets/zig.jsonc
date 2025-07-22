@@ -48,7 +48,7 @@
     },
     "Print Stdout": {
         "description": "Print to std out wrtiter",
-        "prefix": "stp",
+        "prefix": "out",
         "body": [
             "try stdout.print(\"$1\\n\", .{$2});"
         ]

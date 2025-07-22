@@ -1,6 +1,5 @@
 -- Lua
 return {}
---
 --   {
 --     "abecodes/tabout.nvim",
 --     lazy = false,
