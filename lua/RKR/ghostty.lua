@@ -16,7 +16,7 @@ vim.filetype.add {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "ghosttyconf" },
   callback = function()
-    local client = vim.lsp.start_client {
+    local client = vim.lsp.start {
       name = "ghostty-lsp",
       cmd = { bin_path .. "/ghostty-lsp/lsp" },
     }
@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
-
 
 -- format lsp logs
 vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR><cmd>nohlsearch<CR>]])

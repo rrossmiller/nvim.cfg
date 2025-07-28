@@ -1,5 +1,12 @@
 return {
-  { "EdenEast/nightfox.nvim" },
+  {
+    "EdenEast/nightfox.nvim",
+
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+    -- priority = 1000, -- Ensure it loads first
+  },
   {
     "NTBBloodbath/doom-one.nvim",
     config = function()
@@ -57,8 +64,8 @@ return {
         no_bold = false, -- Force no bold
         no_underline = false, -- Force no underline
         styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-          comments = { "italic" }, -- Change the style of comments
-          conditionals = { "italic" },
+          comments = {}, -- { "italic" }, Change the style of comments
+          conditionals = {}, -- { "italic" },
           loops = {},
           functions = {},
           keywords = {},
@@ -89,7 +96,7 @@ return {
       }
 
       -- setup must be called before loading
-      vim.cmd.colorscheme "catppuccin"
+      -- vim.cmd.colorscheme "catppuccin"
     end,
   },
   { -- You can easily change to a different colorscheme.
@@ -110,7 +117,7 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme "tokyonight-night"
+      -- vim.cmd.colorscheme "tokyonight-night"
     end,
   },
   {
@@ -119,7 +126,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd.colorscheme "vscode"
+      -- vim.cmd.colorscheme "vscode"
     end,
   },
 }
