@@ -2,7 +2,8 @@ require "RKR.remap"
 require "RKR.opts"
 require "RKR.augroups"
 
-if vim.g.colors_name == "nightfox" then
+local colorscheme = vim.g.colors_name
+if colorscheme == "nightfox" or colorscheme == "tokyonight" then
   -- clear some highlight groupd
   local t = {
     -- "MatchParen",

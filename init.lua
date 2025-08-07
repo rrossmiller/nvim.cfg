@@ -1,4 +1,3 @@
-require "RKR"
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -32,14 +31,14 @@ require("lazy").setup {
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  -- checker = { enabled = true },
 }
 
---
-require "RKR.ghostty"
--- require "RKR.arduino"
 
--- vim.cmd.colorscheme "vscode"
+vim.cmd.colorscheme "vscode"
 -- vim.cmd.colorscheme "doom-one"
-vim.cmd.colorscheme "nightfox"
+-- vim.cmd.colorscheme "nightfox"
 
+--
+require "RKR"
+require "RKR.ghostty"
