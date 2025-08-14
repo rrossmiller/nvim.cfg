@@ -6,7 +6,7 @@ return {
   event = "VeryLazy",
   keys = {
     -- alt-shift-w
-    { "„", "<Cmd>bd<CR>", desc = "close current tab" },
+    -- { "„", ":silent wa<CR>%bd!<CR>", desc = "close current tab" },
     {
       "Œ", -- shift-opt-q
       -- function()

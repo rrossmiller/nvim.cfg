@@ -112,6 +112,11 @@ vim.keymap.set("n", "<leader>Q", function()
   vim.cmd "qa"
 end, { desc = "Exit Neovim" })
 
+vim.keymap.set("n", "„", function()
+  vim.cmd "wa"
+  vim.cmd "silent %bd!"
+end, { desc = "Close all buffers" })
+
 vim.keymap.set("n", "<leader>qqq", "<cmd>q!<CR>", { desc = "Force Exit Neovim" })
 
 -- make a file executable
