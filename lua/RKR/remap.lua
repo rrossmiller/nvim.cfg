@@ -216,3 +216,6 @@ vim.keymap.set("n", "<leader>o", function()
   print "TODO: get current buffer path"
   -- vim.ui.open("%")
 end, { desc = "open file" })
+
+-- wrap line (Vgq)
+vim.keymap.set("n", "<leader>gq", "Vgq", { desc = 'Wrap line' })

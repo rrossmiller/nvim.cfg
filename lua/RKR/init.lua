@@ -13,3 +13,5 @@ if colorscheme == "nightfox" or colorscheme == "tokyonight" then
     vim.api.nvim_set_hl(0, v, {})
   end
 end
+
+vim.lsp.enable("spellcheck")

@@ -6,6 +6,10 @@ vim.g.python3_host_prog = home .. "/.venvs/nvim/bin/python"
 -- `:help vim.opt`
 -- `:help option-list`
 
+
+-- set noswapfile
+vim.cmd.set("noswapfile")
+
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
