@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "Cmdline
   pattern = "*",
   group = augroup,
   callback = function()
-    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+    if vim.o.number and vim.api.nvim_get_mode().mode ~= "i" then
       vim.opt.relativenumber = true
     end
   end,
@@ -26,9 +26,9 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   pattern = "*",
   group = augroup,
   callback = function()
-    if vim.o.nu then
+    if vim.o.number then
       vim.opt.relativenumber = false
-      vim.cmd "redraw"
+      -- vim.cmd "redraw"
     end
   end,
 })
@@ -58,5 +58,30 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
   group = "ShowRecording",
   callback = function()
     vim.o.cmdheight = 0
+  end,
+})
+
+-- help window in a right split
+-- Create an autocmd group to manage the autocmd
+vim.api.nvim_create_augroup("HelpWindowGroup", { clear = true })
+
+-- Autocmd to trigger the function when a new buffer is opened
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = "HelpWindowGroup",
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "help" then
+      vim.cmd "wincmd L"
+    end
+  end,
+})
+
+-- move copilot window to the right
+vim.api.nvim_create_augroup("CopilotWindowGroup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  group = "CopilotWindowGroup",
+  pattern = "CopilotChatOpen",
+  callback = function()
+    vim.cmd "wincmd L"
   end,
 })

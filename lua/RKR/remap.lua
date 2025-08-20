@@ -112,6 +112,7 @@ vim.keymap.set("n", "<leader>Q", function()
   vim.cmd "qa"
 end, { desc = "Exit Neovim" })
 
+
 vim.keymap.set("n", "<leader>qqq", "<cmd>q!<CR>", { desc = "Force Exit Neovim" })
 
 -- make a file executable
@@ -154,6 +155,12 @@ end, { desc = "open Neotree" })
 vim.keymap.set("n", "<leader>pT", function()
   toggle_neotree()
 end, { desc = "toggle Neotree" })
+
+vim.keymap.set("n", "„", function()
+  vim.cmd "wa"
+  vim.cmd "silent %bd!"
+  toggle_neotree()
+end, { desc = "Close all buffers" })
 
 -- run the default just recipe
 vim.keymap.set("n", "<leader>jj", function()
