@@ -55,8 +55,8 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "Ï", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 -- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- search and replace all instances
@@ -226,3 +226,7 @@ end, { desc = "open file" })
 
 -- wrap line (Vgq)
 vim.keymap.set("n", "<leader>gq", "Vgq", { desc = 'Wrap line' })
+
+-- cycle tabs
+vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = 'Tab Next' })
+vim.keymap.set("n", "<leader>n", ":tabnext<CR>", { desc = 'Tab Next' })
