@@ -8,7 +8,7 @@
         "prefix": "mains",
         "body": [
             "package main\n\nimport \"fmt\"",
-            "\nfunc main()  {\n\tfmt.Println(\"Hello, world!\")\n\t$0\n}"
+            "\nfunc main() {\n\tfmt.Println(\"Hello, world!\")\n}"
         ],
         "description": "Log output to console"
     },

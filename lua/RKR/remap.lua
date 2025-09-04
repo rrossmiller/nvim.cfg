@@ -86,9 +86,9 @@ vim.keymap.set("n", "º", function()
 end)
 
 -- toggle color colorcolumn
-vim.keymap.set("n", "<leader>CC", function()
+vim.keymap.set("n", "<leader>cC", function()
   if vim.o.colorcolumn == "" then
-    vim.o.colorcolumn = "80"
+    vim.o.colorcolumn = tostring(vim.o.textwidth)
   else
     vim.o.colorcolumn = ""
   end
@@ -191,7 +191,6 @@ vim.keymap.set("n", "<leader>jb", function()
   end
 
   -- display and run after selection
-  local out = ""
   vim.ui.select(choices, {
     prompt = "Select just recipe",
   }, function(choice)
@@ -226,3 +225,9 @@ end, { desc = "open file" })
 
 -- wrap line (Vgq)
 vim.keymap.set("n", "<leader>gq", "Vgq", { desc = 'Wrap line' })
+
+-- toggle spell
+vim.keymap.set('n', '<leader>ts', function()
+  vim.o.spell = not vim.o.spell
+end, { desc = 'toggle spell' })
+

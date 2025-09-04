@@ -21,6 +21,13 @@
             "const stdoutFile = std.io.getStdOut().writer();"
         ]
     },
+    "Buffer": {
+        "description": "Stack alloc'd buffer",
+        "prefix": "nbuf",
+        "body": [
+            "var $1: [$2]u8 = undefined;"
+        ]
+    },
     "print": {
         "description": "debug print",
         "prefix": "print",

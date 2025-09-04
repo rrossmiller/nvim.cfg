@@ -1,6 +1,5 @@
-local home = os.getenv "HOME"
-local user = os.getenv "USER"
-local bin_path = vim.fn.stdpath "state"
+-- local home = os.getenv "HOME"
+-- local user = os.getenv "USER"
 -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 -- if user == "robrossmiller" then
@@ -32,11 +31,9 @@ local bin_path = vim.fn.stdpath "state"
 -- vim.keymap.set("n", "<leader>rr", [[:%s/\\n/\r\t/g<CR><cmd>nohlsearch<CR>]])
 -- end
 
+local bin_path = vim.fn.stdpath "state"
 return {
   cmd = { bin_path .. "/spellcheck-lsp/lsp" },
   filetypes = { "text", "markdown" },
   settings = {},
-  on_exit = function(code, _, _)
-    vim.notify("Closing Spellcheck LSP exited with code: " .. code, vim.log.levels.INFO)
-  end,
 }
