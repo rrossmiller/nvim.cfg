@@ -8,8 +8,9 @@
         "prefix": "mains",
         "body": [
             "#include <stdio.h>",
+            "",
             "int main(int argc, char *argv[]){",
-            "\tprintf(\"Hello, world!\");",
+            "\tprintf(\"Hello, world!\\n\");",
             "}"
         ]
     }

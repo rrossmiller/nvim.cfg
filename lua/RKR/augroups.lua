@@ -85,3 +85,22 @@ vim.api.nvim_create_autocmd("User", {
     vim.cmd "wincmd L"
   end,
 })
+
+
+-- toggle side padding
+vim.api.nvim_create_augroup("MyZenMode", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  group = "MyZenMode",
+  pattern = "*",
+  callback = function()
+    local side_padding = vim.g.my_zen_mode
+    -- toggle fold col
+    if side_padding then
+      vim.o.foldcolumn = "9"
+      vim.o.signcolumn = "yes:5"
+    else
+      vim.o.foldcolumn = "0"
+      vim.o.signcolumn = "yes"
+    end
+  end,
+})

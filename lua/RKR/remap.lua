@@ -122,17 +122,16 @@ vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "To
 
 -- set padding on the left
 -- mimics zen mode without losing splits or tabs
-local side_padding = false
+vim.g.my_zen_mode = false
 local function toggle_side_padding()
+  vim.g.my_zen_mode = not vim.g.my_zen_mode
   -- toggle fold col
-  if not side_padding then
+  if vim.g.my_zen_mode then
     vim.o.foldcolumn = "9"
     vim.o.signcolumn = "yes:5"
-    side_padding = true
   else
     vim.o.foldcolumn = "0"
     vim.o.signcolumn = "yes"
-    side_padding = false
   end
 end
 vim.keymap.set("n", "<leader>;", toggle_side_padding, {
@@ -141,7 +140,7 @@ vim.keymap.set("n", "<leader>;", toggle_side_padding, {
 
 -- file tree stuff
 local function toggle_neotree()
-  if side_padding then
+  if vim.g.my_zen_mode then
     toggle_side_padding()
   end
   vim.cmd "Neotree toggle"
@@ -248,3 +247,6 @@ vim.keymap.set("n", "<leader>do", dapui.toggle, { desc = "Debug: See last sessio
 -- cycle tabs
 vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = "Tab Next" })
 vim.keymap.set("n", "<leader>n", ":tabnext<CR>", { desc = "Tab Next" })
+
+
+return { side_padding = side_padding }
