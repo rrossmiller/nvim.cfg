@@ -86,9 +86,9 @@ vim.keymap.set("n", "º", function()
 end)
 
 -- toggle color colorcolumn
-vim.keymap.set("n", "<leader>CC", function()
+vim.keymap.set("n", "<leader>cC", function()
   if vim.o.colorcolumn == "" then
-    vim.o.colorcolumn = "80"
+    vim.o.colorcolumn = tostring(vim.o.textwidth)
   else
     vim.o.colorcolumn = ""
   end
@@ -112,7 +112,6 @@ vim.keymap.set("n", "<leader>Q", function()
   vim.cmd "qa"
 end, { desc = "Exit Neovim" })
 
-
 vim.keymap.set("n", "<leader>qqq", "<cmd>q!<CR>", { desc = "Force Exit Neovim" })
 
 -- make a file executable
@@ -123,17 +122,16 @@ vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { silent = true, desc = "To
 
 -- set padding on the left
 -- mimics zen mode without losing splits or tabs
-local side_padding = false
+vim.g.my_zen_mode = false
 local function toggle_side_padding()
+  vim.g.my_zen_mode = not vim.g.my_zen_mode
   -- toggle fold col
-  if not side_padding then
+  if vim.g.my_zen_mode then
     vim.o.foldcolumn = "9"
     vim.o.signcolumn = "yes:5"
-    side_padding = true
   else
     vim.o.foldcolumn = "0"
     vim.o.signcolumn = "yes"
-    side_padding = false
   end
 end
 vim.keymap.set("n", "<leader>;", toggle_side_padding, {
@@ -142,7 +140,7 @@ vim.keymap.set("n", "<leader>;", toggle_side_padding, {
 
 -- file tree stuff
 local function toggle_neotree()
-  if side_padding then
+  if vim.g.my_zen_mode then
     toggle_side_padding()
   end
   vim.cmd "Neotree toggle"
@@ -191,7 +189,6 @@ vim.keymap.set("n", "<leader>jb", function()
   end
 
   -- display and run after selection
-  local out = ""
   vim.ui.select(choices, {
     prompt = "Select just recipe",
   }, function(choice)
@@ -225,24 +222,31 @@ vim.keymap.set("n", "<leader>o", function()
 end, { desc = "open file" })
 
 -- wrap line (Vgq)
-vim.keymap.set("n", "<leader>gq", "Vgq", { desc = 'Wrap line' })
+vim.keymap.set("n", "<leader>gq", "Vgq", { desc = "Wrap line" })
 
+-- toggle spell
+vim.keymap.set("n", "<leader>ts", function()
+  vim.o.spell = not vim.o.spell
+end, { desc = "toggle spell" })
 
 -- debugger
-    local dap = require 'dap'
-    local dapui = require 'dapui'
+local dap = require "dap"
+local dapui = require "dapui"
 
-vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Debug: Start/Continue' })
-vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-vim.keymap.set('n', 'Í', dap.step_over, { desc = 'Debug: Step Over' })
-vim.keymap.set('n', '<F7>', dap.step_out, { desc = 'Debug: Step Out' })
-vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = 'Debug: Toggle Breakpoint' })
-vim.keymap.set('n', '<leader>B', function()
-  dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-end, { desc = 'Debug: Set Breakpoint' })
+vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug: Start/Continue" })
+vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug: Step Into" })
+vim.keymap.set("n", "Í", dap.step_over, { desc = "Debug: Step Over" })
+vim.keymap.set("n", "<F7>", dap.step_out, { desc = "Debug: Step Out" })
+vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+vim.keymap.set("n", "<leader>B", function()
+  dap.set_breakpoint(vim.fn.input "Breakpoint condition: ")
+end, { desc = "Debug: Set Breakpoint" })
 -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-vim.keymap.set('n', '<leader>do', dapui.toggle, { desc = 'Debug: See last session result.' })
+vim.keymap.set("n", "<leader>do", dapui.toggle, { desc = "Debug: See last session result." })
 
 -- cycle tabs
-vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = 'Tab Next' })
-vim.keymap.set("n", "<leader>n", ":tabnext<CR>", { desc = 'Tab Next' })
+vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = "Tab Next" })
+vim.keymap.set("n", "<leader>n", ":tabnext<CR>", { desc = "Tab Next" })
+
+
+return { side_padding = side_padding }
