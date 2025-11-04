@@ -39,6 +39,7 @@ return { -- Autoformat
       go = { "gofmt" },
       sh = { "shfmt" },
       bash = { "shfmt" },
+      zsh = { "shfmt" },
       java = { "google-java-format" },
       -- sub-list torun *until* a formatter is found.
       javascript = { "prettier" },

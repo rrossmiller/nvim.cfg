@@ -161,7 +161,7 @@ return {
           },
         },
         -- ts_ls = {},
-        deno = {},
+        -- deno = {},
         html = { filetypes = { "html" } },
         jsonls = {},
         clangd = {},
