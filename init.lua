@@ -42,3 +42,4 @@ vim.cmd.colorscheme "vscode"
 --
 require "RKR"
 require "RKR.ghostty"
+
