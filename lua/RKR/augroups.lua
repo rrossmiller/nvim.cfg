@@ -104,3 +104,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     end
   end,
 })
+
+-- markdown
+vim.api.nvim_create_augroup("MarkdownSettings", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  group = "MarkdownSettings",
+  pattern = "*.md",
+  callback = function()
+    vim.o.textwidth = 110
+  end,
+})

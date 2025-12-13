@@ -15,3 +15,4 @@ if colorscheme == "nightfox" or colorscheme == "tokyonight" then
 end
 
 vim.lsp.enable("spellcheck")
+vim.lsp.enable("roc")

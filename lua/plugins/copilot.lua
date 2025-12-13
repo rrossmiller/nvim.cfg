@@ -12,8 +12,8 @@ return {
   {
     "https://github.com/github/copilot.vim",
     config = function()
-      -- vim.cmd "Copilot disable"
-      vim.g.copilot = true
+      vim.cmd "Copilot disable"
+      vim.g.copilot = false
       vim.keymap.set("n", "<leader>ct", function()
         vim.g.copilot = not vim.g.copilot
         if vim.g.copilot then
