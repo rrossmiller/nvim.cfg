@@ -55,7 +55,6 @@ return {
         pythonPath = home .. '/.venvs/cava/bin/python', -- Ensure this points to your venv
       })
 
-
     -- mason nvim dap
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
