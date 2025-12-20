@@ -9,6 +9,7 @@ local ensure_installed = {
   "vimdoc",
   "vim",
 }
+
 return {
   {
     -- Highlight, edit, and navigate code
@@ -29,7 +30,22 @@ return {
     config = function()
       local ts = require "nvim-treesitter"
       ts.install(ensure_installed)
-    end,
+
+      local global_group = vim.api.nvim_create_augroup("MyTS", { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        group = global_group,
+        pattern = { "*" },
+        callback =
+        -- activate TS if we have a parser for the current file type
+            function()
+              for _, value in ipairs(ts.get_installed()) do
+                if value == vim.bo.filetype then
+                  vim.treesitter.start()
+                end
+              end
+            end,
+      })
+    end, -- config end
   },
   {
     "nvim-treesitter/playground",
