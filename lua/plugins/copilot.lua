@@ -16,12 +16,14 @@ return {
       vim.g.copilot = false
       -- toggle copilot keymap
       vim.keymap.set("n", "<leader>ct", function()
-        vim.g.copilot = not vim.g.copilot
         if vim.g.copilot then
           vim.cmd "Copilot disable"
+          print "copilot off"
         else
           vim.cmd "Copilot enable"
+          print "copilot on"
         end
+        vim.g.copilot = not vim.g.copilot
       end, { desc = "Toggle Copilot" })
     end,
   },
