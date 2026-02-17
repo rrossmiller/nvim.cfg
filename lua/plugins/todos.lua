@@ -1,6 +1,6 @@
 return {
-  "rrossmiller/todos.nvim",
-  -- dir = "/Users/robrossmiller/Projects/todos.nvim",
+  -- "rrossmiller/todos.nvim",
+  dir = "/Users/robrossmiller/Projects/todos.nvim",
   config = function()
     require("todos").setup()
   end,

@@ -134,6 +134,7 @@ return {
       local servers = {
         gopls = {},
         pyright = {},
+        -- ty = {},
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -144,7 +145,7 @@ return {
         -- tsserver = {},
         --
 
-        stylua={},
+        stylua = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},

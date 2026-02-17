@@ -41,6 +41,7 @@ return { -- Autoformat
       bash = { "shfmt" },
       zsh = { "shfmt" },
       java = { "google-java-format" },
+      sql = { "sqls" },
       -- sub-list torun *until* a formatter is found.
       javascript = { "prettier" },
       markdown = { "prettier" },
