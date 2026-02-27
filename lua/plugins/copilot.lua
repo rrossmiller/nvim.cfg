@@ -25,6 +25,16 @@ return {
         end
         vim.g.copilot = not vim.g.copilot
       end, { desc = "Toggle Copilot" })
+
+      -- accept copilot suggestion keymap
+      vim.keymap.set("i", "<C-l>", function()
+        if vim.g.copilot then
+          -- copilot.suggestion
+          return vim.fn["copilot#Accept"]()
+        else
+          return "<C-l>"
+        end
+      end, { expr = true, desc = "Accept Copilot suggestion", replace_keycodes = false })
     end,
   },
   -- {
