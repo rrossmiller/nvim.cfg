@@ -1,3 +1,5 @@
+local user = os.getenv "USER"
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -86,7 +88,6 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-
 -- toggle side padding
 vim.api.nvim_create_augroup("MyZenMode", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -111,6 +112,10 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   group = "MarkdownSettings",
   pattern = "*.md",
   callback = function()
-    vim.o.textwidth = 110
+    if user == "rrossmil" then
+      vim.o.textwidth = 170
+    else
+      vim.o.textwidth = 110
+    end
   end,
 })

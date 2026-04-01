@@ -1,6 +1,7 @@
 -- Highlight todo, notes, etc in comments
 return {
   "folke/todo-comments.nvim",
+  -- enabled = false,
   event = "VimEnter",
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
@@ -65,7 +66,7 @@ return {
       },
       -- regex that will be used to match keywords.
       -- don't replace the (KEYWORDS) placeholder
-      pattern = [[\b(KEYWORDS)]], -- ripgrep regex
+      pattern = [[\b(KEYWORDS):]], -- ripgrep regex
       -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
     },
   },
