@@ -8,8 +8,13 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+-- vim.diagnostic.get_prev
+vim.keymap.set("n", "[d", function()
+  vim.diagnostic.jump { count = -1, float = true }
+end, { desc = "Go to prev [D]iagnostic message" })
+vim.keymap.set("n", "]d", function()
+  vim.diagnostic.jump { count = 1, float = true }
+end, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>ql", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix [L]ist" })
 
@@ -98,7 +103,7 @@ vim.api.nvim_set_keymap("n", "<leader>as", ":silent ASToggle<CR>", {})
 
 -- restart lsp
 vim.keymap.set("n", "<leader>lr", function()
-  vim.cmd "LspRestart"
+  vim.cmd "lsp restart"
   print "done reloading"
 end, { desc = "Restart LSP" })
 
@@ -248,6 +253,3 @@ vim.keymap.set("n", "<leader>do", dapui.toggle, { desc = "Debug: See last sessio
 -- cycle tabs
 vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = "Tab Next" })
 vim.keymap.set("n", "<leader>n", ":tabnext<CR>", { desc = "Tab Next" })
-
-
-return { side_padding = side_padding }
