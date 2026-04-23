@@ -235,6 +235,7 @@ vim.keymap.set("n", "<leader>ts", function()
 end, { desc = "toggle spell" })
 
 -- debugger
+
 local dap = require "dap"
 local dapui = require "dapui"
 
@@ -251,5 +252,7 @@ end, { desc = "Debug: Set Breakpoint" })
 vim.keymap.set("n", "<leader>do", dapui.toggle, { desc = "Debug: See last session result." })
 
 -- cycle tabs
-vim.keymap.set("n", "<leader>P", ":tabprevious<CR>", { desc = "Tab Next" })
-vim.keymap.set("n", "<leader>n", ":tabnext<CR>", { desc = "Tab Next" })
+vim.keymap.set("n", "<leader>tN", ":tabnew<CR>", { desc = "new tab" })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "close tab" })
+vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Tab Previous" })
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Tab Next" })

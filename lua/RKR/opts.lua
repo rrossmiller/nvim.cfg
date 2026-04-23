@@ -7,9 +7,8 @@ vim.o.winborder = "rounded"
 -- `:help vim.opt`
 -- `:help option-list`
 
-
 -- set noswapfile
-vim.cmd.set("noswapfile")
+vim.cmd.set "noswapfile"
 
 -- Make line numbers default
 vim.opt.number = true
@@ -34,7 +33,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-
+vim.o.textwidth = 0
 
 -- wrap on whitespace
 vim.opt.linebreak = true

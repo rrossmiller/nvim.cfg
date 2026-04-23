@@ -31,7 +31,7 @@ return {
 
     -- setup python
     require("dap-python").setup(nvim_venv)
-    table.insert(require('dap').configurations.python,
+    table.insert(dap.configurations.python,
       {
         name = "CAVA API",
         type = "debugpy",
@@ -52,6 +52,17 @@ return {
         --   "--port", "8000",
         --   -- "--reload"
         -- },
+        pythonPath = home .. '/.venvs/cava/bin/python', -- Ensure this points to your venv
+      })
+
+    -- debug python with the specified venv
+    table.insert(dap.configurations.python,
+      {
+        name = "python file",
+        type = "debugpy",
+        request = "launch",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
         pythonPath = home .. '/.venvs/cava/bin/python', -- Ensure this points to your venv
       })
 
