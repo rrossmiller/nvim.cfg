@@ -7,12 +7,12 @@ return {
   end,
   keys = {
     {
-      "<leader>gd",
+      "<leader>gD",
       function()
         local d = require "dictionary"
         d.lookup_word()
       end,
-      "Define the word under the cursor",
+      { desc = "Define the word under the cursor" },
     },
   },
 }

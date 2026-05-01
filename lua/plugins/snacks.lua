@@ -27,6 +27,7 @@ return {
     {
       "<leader>.",
       function()
+        local Snacks = require "snacks"
         Snacks.scratch()
       end,
       desc = "Toggle Scratch Buffer",
@@ -34,9 +35,26 @@ return {
     {
       "<leader>S",
       function()
+        local Snacks = require "snacks"
         Snacks.scratch.select()
       end,
       desc = "Select Scratch Buffer",
+    },
+    {
+      "<leader>gb",
+      function()
+        local Snacks = require "snacks"
+        Snacks.git.blame_line()
+      end,
+      desc = "Git blame the current line",
+    },
+    {
+      "<leader>lg",
+      function()
+        local Snacks = require "snacks"
+        Snacks.lazygit.open()
+      end,
+      desc = "LazyGit",
     },
   },
 }
