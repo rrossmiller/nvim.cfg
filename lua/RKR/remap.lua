@@ -153,7 +153,7 @@ local function toggle_neotree()
 end
 vim.keymap.set("n", "<leader>pt", function()
   toggle_neotree()
-end, { desc = "open Neotree" })
+end, { desc = "toggle Neotree" })
 
 vim.keymap.set("n", "<leader>pT", function()
   toggle_neotree()
@@ -222,8 +222,8 @@ vim.keymap.set("n", "<leader>jb", function()
 end, { desc = "Select just recipe" })
 
 vim.keymap.set("n", "<leader>o", function()
-  print "TODO: get current buffer path"
-  -- vim.ui.open("%")
+  -- open the current buffer path
+  vim.ui.open(vim.fn.expand "%:p:h")
 end, { desc = "open file" })
 
 -- wrap line (Vgq)
@@ -256,3 +256,9 @@ vim.keymap.set("n", "<leader>tN", ":tabnew<CR>", { desc = "new tab" })
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "close tab" })
 vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Tab Next" })
+
+-- open todo and standup
+vim.keymap.set("n", "<leader>tt", ":e ~/.local/state/nvim/todos/todo.todo<CR><C-w>v:e ~/Desktop/standup.md<CR>", { desc = "Open ToDos" })
+
+-- TS Playground
+vim.keymap.set("n", "<leader>tP", ":InspectTree<CR>", { desc = "Open ToDos" })

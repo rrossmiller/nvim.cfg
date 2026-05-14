@@ -47,11 +47,4 @@ return {
       })
     end, -- config end
   },
-  {
-    "nvim-treesitter/playground",
-    keys = {
-      { "<leader>tP", "<cmd>TSPlaygroundToggle<cr>", desc = "TS toggle playground" },
-    },
-  },
-  -- { "nvim-treesitter/nvim-treesitter-textobjects" },
 }
