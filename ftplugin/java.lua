@@ -11,7 +11,7 @@
 local home = os.getenv "HOME"
 local jdtls = require "jdtls"
 
-local java_version = "21.0.5-tem"
+local java_version = "26.0.1-tem"
 
 -- local java_version = "17.0.13-tem"
 local jdtls_version = vim.fs.dir "/opt/homebrew/Cellar/jdtls"()
@@ -191,7 +191,7 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
-    -- If you use lombok, download the lombok jar and place it in ~/.local/share/eclipse
+    -- If you use lombok, download the lombok jar and place it in ~/.local/share/jdtls
     "-javaagent:"
       .. home
       .. "/.local/share/jdtls/lombok.jar",

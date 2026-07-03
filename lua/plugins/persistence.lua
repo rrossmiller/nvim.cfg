@@ -41,15 +41,15 @@ return {
     },
 
     -- restore the last session
-    {
-      "<leader>ll",
-      function()
-        vim.cmd "Neotree close"
-        vim.cmd "lua require('persistence').load({ last = true })"
-        close_some_bufs()
-        vim.cmd "Neotree show"
-      end,
-    },
+    -- {
+    --   "<leader>ll",
+    --   function()
+    --     vim.cmd "Neotree close"
+    --     vim.cmd "lua require('persistence').load({ last = true })"
+    --     close_some_bufs()
+    --     vim.cmd "Neotree show"
+    --   end,
+    -- },
     -- stop Persistence => session won't be saved on exit
     {
       "<leader>ld",

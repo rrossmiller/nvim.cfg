@@ -14,6 +14,7 @@ return {
   {
     -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
+    branch = "main", -- Make sure this says main, not master
     build = ":TSUpdate",
     lazy = false,
     dependencies = {

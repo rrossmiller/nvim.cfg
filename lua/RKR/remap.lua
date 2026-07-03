@@ -258,7 +258,16 @@ vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Tab Next" })
 
 -- open todo and standup
-vim.keymap.set("n", "<leader>tt", ":e ~/.local/state/nvim/todos/todo.todo<CR><C-w>v:e ~/Desktop/standup.md<CR>", { desc = "Open ToDos" })
+vim.keymap.set("n", "<leader>tt", ":e ~/.local/state/nvim/todos/todo.todo<CR><C-w>v:e ~/Desktop/standup.md<CR>",
+  { desc = "Open ToDos" })
 
 -- TS Playground
 vim.keymap.set("n", "<leader>tP", ":InspectTree<CR>", { desc = "Open ToDos" })
+
+-- list attached LSPs
+vim.keymap.set("n", "<leader>ll", function()
+  local clients = vim.lsp.get_clients()
+  for i, c in ipairs(clients) do
+    print(i, c.name)
+  end
+end, { desc = "List LSPs" })
