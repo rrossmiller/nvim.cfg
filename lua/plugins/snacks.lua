@@ -16,7 +16,12 @@ return {
         return "markdown"
       end,
     },
-    bigfile = { enabled = true },
+    bigfile = {
+      enabled = true,
+      setup = function()
+        vim.treesitter.stop()
+      end,
+    },
     -- notifier = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },

@@ -113,6 +113,11 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, "[T]oggle Inlay [H]ints")
           end
+
+          -- gopls highlights get in the way of treesitter
+          if client and client.name == "gopls" then
+            client.server_capabilities.semanticTokensProvider = nil
+          end
         end,
       })
 
@@ -132,7 +137,13 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        gopls = {},
+        gopls = {
+          -- settings = {
+          -- gopls = {
+          semanticTokens = false,
+          -- },
+          -- },
+        },
         pyright = {},
         -- ty = {},
         rust_analyzer = {},
@@ -168,6 +179,28 @@ return {
         clangd = {},
         bashls = {},
         zls = {},
+        ols = {},
+        --   -- mason = false,   -- Prevent Mason from overriding your system OLS
+        --   -- cmd = { "ols" }, -- Ensure it calls your global path binary
+        --   init_options = {
+        --     checker_args = "-strict-style",
+        --     collections = {
+        --       { name = "shared", path = vim.fn.expand "$HOME/odin-lib" },
+        --     },
+        --     -- Feature flags
+        --     enable_hover = true,
+        --     enable_document_symbols = true,
+        --     enable_snippets = true,
+        --     enable_procedure_snippet = true,
+        --     enable_completion_matching = true,
+        --     enable_auto_import = true,
+        --
+        --     -- Inlay Hints
+        --     enable_inlay_hints_params = true,
+        --     enable_inlay_hints_default_params = true,
+        --     enable_inlay_hints_implicit_return = true,
+        --   },
+        -- },
       }
       vim.g.zig_fmt_parse_errors = 0
       vim.g.zig_fmt_autosave = 0

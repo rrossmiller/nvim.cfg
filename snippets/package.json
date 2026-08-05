@@ -16,6 +16,12 @@
             },
             {
                 "language": [
+                    "odin"
+                ],
+                "path": "./odin.jsonc"
+            },
+            {
+                "language": [
                     "go"
                 ],
                 "path": "./go.jsonc"
