@@ -49,7 +49,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
         ".git/",
       } }
     end, { desc = "[P]roject [F]iles" })
-    vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
+    -- vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
+    vim.keymap.set("n", "<leader>ss", function()
+      -- get user input for a file extension to filter by
+      local file_extension = vim.fn.input "Enter file extension (e.g., py, js, txt): "
+      builtin.live_grep { glob_pattern = "*." .. file_extension }
+    end, { desc = "[S]earch [S]elect Telescope" })
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
     vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
