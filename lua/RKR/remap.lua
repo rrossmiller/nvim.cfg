@@ -258,8 +258,13 @@ vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Tab Previous" })
 vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Tab Next" })
 
 -- open todo and standup
-vim.keymap.set("n", "<leader>tt", ":e ~/.local/state/nvim/todos/todo.todo<CR><C-w>v:e ~/Desktop/standup.md<CR>",
-  { desc = "Open ToDos" })
+vim.keymap.set("n", "<leader>tt", function()
+  if vim.env.USER == "robrossmiller" then
+    vim.cmd ":e ~/.local/state/nvim/todos/todo.todo"
+  else
+    vim.cmd ":e ~/.local/state/nvim/todos/todo.todo<CR><C-w>v:e ~/Desktop/standup.md<CR>"
+  end
+end, { desc = "Open ToDos" })
 
 -- TS Playground
 vim.keymap.set("n", "<leader>tP", ":InspectTree<CR>", { desc = "Open ToDos" })
