@@ -265,9 +265,11 @@ vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Tab Next" })
 -- open todo and standup
 vim.keymap.set("n", "<leader>tt", function()
   if vim.env.USER == "robrossmiller" then
-    vim.cmd ":e ~/.local/state/nvim/todos/todo.todo"
+    vim.cmd "e ~/.local/state/nvim/todos/todo.todo"
   else
-    vim.cmd ":e ~/.local/state/nvim/todos/todo.todo<CR><C-w>v:e ~/Desktop/standup.md<CR>"
+    vim.cmd "e ~/.local/state/nvim/todos/todo.todo"
+    vim.cmd "vsplit"
+    vim.cmd "e ~/Desktop/standup.md"
   end
 end, { desc = "Open ToDos" })
 
