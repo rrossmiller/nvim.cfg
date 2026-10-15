@@ -47,11 +47,17 @@ return { -- Autoformat
       markdown = { "prettier" },
       yaml = { "prettier" },
       xml = { "xmlformatter" },
+      c = { "clang_format" },
+      cpp = { "clang_format" },
     },
     -- Customize formatters
     formatters = {
       shfmt = {
         prepend_args = { "-i", "2" },
+      },
+      ["clang-format"] = {
+        -- This forces clang-format to look for a .clang-format file in the project or parent directories
+        prepend_args = { "-style=file" },
       },
     },
   },
