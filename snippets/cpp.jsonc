@@ -12,5 +12,17 @@
             "\tstd::cout << \"hello cpp\" << std::endl;",
             "}"
         ]
+    },
+    "Serial.printf": {
+        "prefix": "spf",
+        "body": [
+            "Serial.printf(\"$1\\n\",$2);"
+        ]
+    },
+    "Serial.println": {
+        "prefix": "spl",
+        "body": [
+            "Serial.println(\"$1\");"
+        ]
     }
 }
