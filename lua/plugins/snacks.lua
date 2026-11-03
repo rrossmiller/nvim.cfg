@@ -27,8 +27,31 @@ return {
     statuscolumn = { enabled = true },
     words = { enabled = true },
     lazygit = { enabled = true },
+    explorer = { enabled = true },
+    picker = {
+      sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+          exclude = { ".DS_Store" },
+          follow_file = false,
+          layout = {
+            preset = "sidebar",
+            preview = false,
+            layout = { width = 30, min_width = 30 },
+          },
+        },
+      },
+    },
   },
   keys = {
+    {
+      "<leader>R",
+      function()
+        require("snacks").explorer.reveal()
+      end,
+      desc = "Reveal current file in Explorer",
+    },
     {
       "<leader>.",
       function()

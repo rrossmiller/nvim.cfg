@@ -7,10 +7,12 @@ return {
         "nofile",
         "quickfix",
         "prompt",
-        "neo-tree",
+        "snacks_picker_list",
+        "snacks_picker_input",
+        "snacks_layout_box",
       },
       -- Ignored buffer types (only while resizing)
-      ignored_buftypes = { "NvimTree" },
+      ignored_buftypes = {},
       -- the default number of lines/columns to resize by at a time
       resize = {
         amount = 3,

@@ -33,23 +33,18 @@ return {
     {
       "<leader>ls",
       function()
-        vim.cmd "Neotree close"
-        vim.cmd "lua require('persistence').load()"
+        local snacks = require "snacks"
+        local explorer = snacks.picker.get({ source = "explorer" })[1]
+        if explorer then
+          explorer:close()
+        end
+        require("persistence").load()
         close_some_bufs()
-        vim.cmd "Neotree show"
+        if not snacks.picker.get({ source = "explorer" })[1] then
+          snacks.explorer.open()
+        end
       end,
     },
-
-    -- restore the last session
-    -- {
-    --   "<leader>ll",
-    --   function()
-    --     vim.cmd "Neotree close"
-    --     vim.cmd "lua require('persistence').load({ last = true })"
-    --     close_some_bufs()
-    --     vim.cmd "Neotree show"
-    --   end,
-    -- },
     -- stop Persistence => session won't be saved on exit
     {
       "<leader>ld",

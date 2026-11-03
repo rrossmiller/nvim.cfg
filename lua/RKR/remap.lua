@@ -117,8 +117,15 @@ vim.keymap.set("n", "<leader>po", function()
   vim.cmd "Oil --float"
 end, { desc = "open Oil in a float" })
 
+local function close_explorer()
+  local explorer = require("snacks").picker.get({ source = "explorer" })[1]
+  if explorer then
+    explorer:close()
+  end
+end
+
 vim.keymap.set("n", "<leader>Q", function()
-  vim.cmd "Neotree close"
+  close_explorer()
   vim.cmd "wa"
   vim.cmd "qa"
 end, { desc = "Exit Neovim" })
@@ -150,25 +157,26 @@ vim.keymap.set("n", "<leader>;", toggle_side_padding, {
 })
 
 -- file tree stuff
-local function toggle_neotree()
+local function toggle_explorer()
   if vim.g.my_zen_mode then
     toggle_side_padding()
   end
-  vim.cmd "Neotree toggle"
+  require("snacks").explorer()
   vim.cmd "horizontal wincmd ="
 end
 vim.keymap.set("n", "<leader>pt", function()
-  toggle_neotree()
-end, { desc = "toggle Neotree" })
+  toggle_explorer()
+end, { desc = "Toggle Explorer" })
 
 vim.keymap.set("n", "<leader>pT", function()
-  toggle_neotree()
-end, { desc = "toggle Neotree" })
+  toggle_explorer()
+end, { desc = "Toggle Explorer" })
 
 vim.keymap.set("n", "„", function()
+  close_explorer()
   vim.cmd "wa"
   vim.cmd "silent %bd!"
-  toggle_neotree()
+  toggle_explorer()
 end, { desc = "Close all buffers" })
 
 -- run the default just recipe
