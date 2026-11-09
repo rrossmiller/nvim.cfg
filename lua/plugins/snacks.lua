@@ -40,6 +40,14 @@ return {
             preview = false,
             layout = { width = 30, min_width = 30 },
           },
+          win = {
+            list = {
+              keys = {
+                ["o"] = "confirm",
+                ["O"] = "explorer_open",
+              },
+            },
+          },
         },
       },
     },
