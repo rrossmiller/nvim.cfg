@@ -22,6 +22,9 @@ vim.keymap.set("n", "<leader>ql", vim.diagnostic.setloclist, { desc = "Open diag
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("t", "<C-,>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", [[Ô]], function()
+  vim.cmd "ToggleTerm"
+end, { desc = "ToggleTerm even in term mode" })
 -- vim.keymap.set("t", "<leader>n", function()
 --   vim.cmd "nu"
 -- end)
