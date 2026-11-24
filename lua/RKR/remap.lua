@@ -177,8 +177,11 @@ end, { desc = "Toggle Explorer" })
 
 vim.keymap.set("n", "„", function()
   close_explorer()
-  vim.cmd "wa"
-  vim.cmd "silent %bd!"
+  -- vim.cmd "wa"
+  -- vim.cmd "silent %bd!"
+  vim.cmd "BufferLineCloseOthers"
+  -- close current buffer
+  vim.cmd "silent bd!"
   toggle_explorer()
 end, { desc = "Close all buffers" })
 
